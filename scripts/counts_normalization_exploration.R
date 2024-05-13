@@ -74,6 +74,10 @@ barplot(countsList$samples$lib.size*1e-6, names=1:ncol(countsList), ylab="Librar
 # retrieve raw counts in log2 CPM
 rawCounts <- cpm(countsList, log=TRUE, normalized.lib.sizes=FALSE)
 
+# visualize raw log2 CPM with a MD plot
+plotMD(rawCounts, column=1)
+abline(h=0, col=plotColorSubset[3], lty=2, lwd=2)
+
 # create heatmap of raw CPM
 pheatmap(rawCounts, scale="row", annotation_col = exp_factor, 
          main="Heatmap of Raw CPM", show_rownames = FALSE, fontsize = 12,
