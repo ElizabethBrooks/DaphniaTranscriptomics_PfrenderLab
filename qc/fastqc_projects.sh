@@ -4,6 +4,7 @@
 #$ -r n
 #$ -N fastqc_projects_jobOutput
 #$ -pe smp 8
+
 #Script to perform fastqc quality control of paired end reads
 #Usage: qsub fastqc_projects.sh inputsFile
 #Usage Ex: qsub fastqc_projects.sh inputPaths_pulicaria.txt

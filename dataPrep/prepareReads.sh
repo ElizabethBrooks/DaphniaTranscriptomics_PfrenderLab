@@ -1,4 +1,8 @@
 #!/bin/bash
+#$ -M ebrooks5@nd.edu
+#$ -m abe
+#$ -r n
+#$ -N prepData_projects_jobOutput
 
 # script to perform data pre-processing and prepare RNAseq reads for analysis
 # usage: bash prepareReads.sh
