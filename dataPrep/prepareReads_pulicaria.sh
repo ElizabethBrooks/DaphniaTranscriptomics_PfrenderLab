@@ -12,7 +12,7 @@ pulicariaInPathOne="/afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNA
 pulicariaInPathTwo="/afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulicaria/D_pulicaria_Lk16_Transcriptome/Lk16_Pool2"
 
 # retrieve output paths
-pulicariaOutPath=$(grep "pairedReads:" ../"inputData/inputPaths_pulicaria.txt" | tr -d " " | sed "s/pairedReads://g")
+pulicariaOutPath=$(grep "pairedReads:" ../"InputData/inputPaths_pulicaria.txt" | tr -d " " | sed "s/pairedReads://g")
 
 # create output directories
 mkdir $pulicariaOutPath

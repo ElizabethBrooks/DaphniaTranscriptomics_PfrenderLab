@@ -12,7 +12,7 @@ obtusaInPathOne="/afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq
 obtusaInPathTwo="/afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_obtusa/D_obtusa_multi/multi_condition_BGI_DNBSeq/F20FTSUSAT1134_DAPltkR/RawData/"
 
 # retrieve output paths
-obtusaOutPath=$(grep "pairedReads:" ../"inputData/inputPaths_obtusa.txt" | tr -d " " | sed "s/pairedReads://g")
+obtusaOutPath=$(grep "pairedReads:" ../"InputData/inputPaths_obtusa.txt" | tr -d " " | sed "s/pairedReads://g")
 
 # create output directories
 mkdir $obtusaOutPath
