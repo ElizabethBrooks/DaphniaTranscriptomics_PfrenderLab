@@ -2,15 +2,14 @@
 #$ -M ebrooks5@nd.edu
 #$ -m abe
 #$ -r n
-#$ -N trimmomatic_projects_jobOutput
-#$ -pe smp 8
+#$ -N trimmomatic_daphniaOmics_jobOutput
+#$ -pe smp 4
+
 #Script to perform trimmomatic trimming of paired end reads
-#Usage: qsub trimmomatic_projects.sh inputsFile
-#Usage Ex: qsub trimmomatic_projects.sh inputPaths_yoon_adipocyte_July2022.txt
-#Usage Ex: qsub trimmomatic_projects.sh inputPaths_yoon_junkrat_July2022.txt
+#Usage: qsub trimmomatic_daphniaOmics.sh inputsFile
 
 #Required modules for ND CRC servers
-module load bio
+module load bio/2.0
 
 #Retrieve input argument of a inputs file
 inputsFile=$1
@@ -47,19 +46,19 @@ echo "Trimmomatic:" >> $versionFile
 trimmomatic -version >> $versionFile
 
 #Loop through all forward and reverse reads and run trimmomatic on each pair
-for f1 in "$readPath"/*_R1_001.fastq.gz; do
+for f1 in "$readPath"/*_1.fq.gz; do
 	#Trim extension from current file name
-	curSample=$(echo $f1 | sed 's/_R._001\.fastq\.gz//')
+	curSample=$(echo $f1 | sed 's/_1\.fq\.gz//')
 	#Set paired file name
-	f2=$curSample"_R2_001.fastq.gz"
+	f2=$curSample"_2.fq.gz"
 	#Trim to sample tag
-	sampleTag=$(basename $f1 | sed 's/_R._001\.fastq\.gz//')
+	sampleTag=$(basename $f1 | sed 's/1\.fq\.gz//')
 	#Print status message
 	echo "Processing $sampleTag"
 	#Determine phred score for trimming
-	if grep -iF "Illumina 1.5" $outputsPath"/qc/"$sampleTag"_R1_001_fastqc/fastqc_data.txt"; then
+	if grep -iF "Illumina 1.5" $outputsPath"/qc/"$sampleTag"_1_fastqc/fastqc_data.txt"; then
 		score=64
-	elif grep -iF "Illumina 1.9" $outputsPath"/qc/"$sampleTag"_R1_001_fastqc/fastqc_data.txt"; then
+	elif grep -iF "Illumina 1.9" $outputsPath"/qc/"$sampleTag"_1_fastqc/fastqc_data.txt"; then
 		score=33
 	else
 		echo "ERROR: Illumina encoding not found... exiting"
@@ -67,16 +66,15 @@ for f1 in "$readPath"/*_R1_001.fastq.gz; do
 		exit 1
 	fi
 	#Perform adapter trimming on paired reads
-	#using 8 threads
-	#removed HEADCROP:13
-	trimmomatic PE -threads 8 -phred"$score" $f1 $f2 $sampleTag"_pForward.fq.gz" $sampleTag"_uForward.fq.gz" $sampleTag"_pReverse.fq.gz" $sampleTag"_uReverse.fq.gz" ILLUMINACLIP:"$adapterPath" LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+	#using 4 threads
+	trimmomatic PE -threads 4 -phred"$score" $f1 $f2 $sampleTag"_pForward.fq.gz" $sampleTag"_uForward.fq.gz" $sampleTag"_pReverse.fq.gz" $sampleTag"_uReverse.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10
 	#Add run inputs to output summary file
-	echo trimmomatic PE -threads 8 -phred"$score" $f1 $f2 $sampleTag"_pForward.fq.gz" $sampleTag"_uForward.fq.gz" $sampleTag"_pReverse.fq.gz" $sampleTag"_uReverse.fq.gz" ILLUMINACLIP:"$adapterPath" LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36 >> $inputOutFile
+	echo trimmomatic PE -threads 4 -phred"$score" $f1 $f2 $sampleTag"_pForward.fq.gz" $sampleTag"_uForward.fq.gz" $sampleTag"_pReverse.fq.gz" $sampleTag"_uReverse.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10 >> $inputOutFile
 	#Clean up
-	rm -r $noPath"_R1_001_fastqc.zip"
-	rm -r $noPath"_R1_001_fastqc/"
-	rm -r $noPath"_R2_001_fastqc.zip"
-	rm -r $noPath"_R2_001_fastqc/"
+	rm -r $noPath"_1_fastqc.zip"
+	rm -r $noPath"_1_fastqc/"
+	rm -r $noPath"_2_fastqc.zip"
+	rm -r $noPath"_2_fastqc/"
 	#Print status message
 	echo "Processed!"
 done

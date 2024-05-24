@@ -31,7 +31,7 @@ echo "Beginning data prep ..."
 for i in $pulicariaInPathOne"/"*; do 
 	# setup output name
 	outName=$(ls $i"/"*_R1_*.fastq.gz | head -1)
-	outName=$(basename $outName | sed "s/_001//g")
+	outName=$(basename $outName | sed "s/_R1_001\.fastq/_1\.fq/g")
 	# status message
 	echo "Processing $outName ..."
 	# combine files for read 1
@@ -41,7 +41,7 @@ done
 for i in $pulicariaInPathOne"/"*; do 
 	# setup output name
 	outName=$(ls $i"/"*_R2_*.fastq.gz | head -1)
-	outName=$(basename $outName | sed "s/_001//g")
+	outName=$(basename $outName | sed "s/_R2_001\.fastq/_2\.fq/g")
 	# status message
 	echo "Processing $outName ..."
 	# combine files for read 2
@@ -52,7 +52,7 @@ done
 for i in $pulicariaInPathTwo"/"*; do 
 	# setup output name
 	outName=$(ls $i"/"*_R1_*.fastq.gz | head -1)
-	outName=$(basename $outName | sed "s/_001//g" | sed "s/fastq/fq/g")
+	outName=$(basename $outName | sed "s/_R1_001\.fastq/_1\.fq/g")
 	# status message
 	echo "Processing $outName ..."
 	# combine files for read 1
@@ -62,7 +62,7 @@ done
 for i in $pulicariaInPathTwo"/"*; do 
 	# setup output name
 	outName=$(ls $i"/"*_R2_*.fastq.gz | head -1)
-	outName=$(basename $outName | sed "s/_001//g" | sed "s/fastq/fq/g")
+	outName=$(basename $outName | sed "s/_R2_001\.fastq/_2\.fq/g")
 	# status message
 	echo "Processing $outName ..."
 	# combine files for read 2

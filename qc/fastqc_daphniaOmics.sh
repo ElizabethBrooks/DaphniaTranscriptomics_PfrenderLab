@@ -2,12 +2,13 @@
 #$ -M ebrooks5@nd.edu
 #$ -m abe
 #$ -r n
-#$ -N fastqc_projects_jobOutput
-#$ -pe smp 8
+#$ -N fastqc_daphniaOmics_jobOutput
 
 #Script to perform fastqc quality control of paired end reads
-#Usage: qsub fastqc_projects.sh inputsFile
-#Usage Ex: qsub fastqc_projects.sh inputPaths_pulicaria.txt
+#Usage: qsub fastqc_daphniaOmics.sh inputsFile
+#Usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_obtusa.txt
+#Usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_pulicaria.txt
+#Usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_pulex.txt
 
 #Required modules for ND CRC servers
 module load bio/2.0
@@ -17,8 +18,6 @@ inputsFile=$1
 
 #Retrieve paired reads absolute path for alignment
 readPath=$(grep "pairedReads:" ../"InputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
-#Retrieve adapter absolute path for alignment
-adapterPath=$(grep "adapter:" ../"InputData/"$inputsFile | tr -d " " | sed "s/adapter://g")
 #Retrieve analysis outputs absolute path
 outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
 
@@ -42,13 +41,13 @@ versionFile=$qcOut"/version_summary.txt"
 fastqc -version > $versionFile
 
 #Loop through all forward and reverse reads and run trimmomatic on each pair
-for f1 in "$readPath"/*_R1_001.fastq.gz; do
+for f1 in "$readPath"/*_1.fq.gz; do
 	#Trim path from file name
-	noPath=$(basename $f1 | sed 's/_R._001\.fastq\.gz//')
+	noPath=$(basename $f1 | sed 's/_1\.fq\.gz//')
 	#Trim extension from current file name
-	curSample=$(echo $f1 | sed 's/_R._001\.fastq\.gz//')
+	curSample=$(echo $f1 | sed 's/_1\.fq\.gz//')
 	#Set paired file name
-	f2=$curSample"_R2_001.fastq.gz"
+	f2=$curSample"_2.fq.gz"
 	#Print status message
 	echo "Processing $noPath"
 	#Perform QC on both paired end reads for the current sample
