@@ -1,0 +1,5 @@
+pairedReads: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulicaria/RawDataCombined
+adapter: /afs/crc.nd.edu/x86_64_linux/bio/Trimmomatic/0.32/adapters/TruSeq3-PE.fa
+genomeReference: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/obtusa_DAPfhqR/GenomicData
+genomeFeatures: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/obtusa_DAPfhqR/GenomicData
+outputs: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/obtusa_DAPfhqR/Results
