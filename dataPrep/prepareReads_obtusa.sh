@@ -16,6 +16,11 @@ obtusaOutPath=$(grep "pairedReads:" ../"inputData/inputPaths_obtusa.txt" | tr -d
 
 # create output directories
 mkdir $obtusaOutPath
+#Check if the folder already exists
+if [ $? -ne 0 ]; then
+	echo "The $obtusaOutPath directory already exsists... please remove before proceeding."
+	exit 1
+fi
 
 # status message
 echo "Beginning data prep ..."

@@ -16,6 +16,11 @@ pulicariaOutPath=$(grep "pairedReads:" ../"inputData/inputPaths_pulicaria.txt" |
 
 # create output directories
 mkdir $pulicariaOutPath
+#Check if the folder already exists
+if [ $? -ne 0 ]; then
+	echo "The $pulicariaOutPath directory already exsists... please remove before proceeding."
+	exit 1
+fi
 
 # status message
 echo "Beginning data prep ..."
@@ -47,7 +52,7 @@ done
 for i in $pulicariaInPathTwo"/"*; do 
 	# setup output name
 	outName=$(ls $i"/"*_R1_*.fastq.gz | head -1)
-	outName=$(basename $outName | sed "s/_001\.fastq/\.fq/g")
+	outName=$(basename $outName | sed "s/_001//g" | sed "s/fastq/fq/g")
 	# status message
 	echo "Processing $outName ..."
 	# combine files for read 1
@@ -57,7 +62,7 @@ done
 for i in $pulicariaInPathTwo"/"*; do 
 	# setup output name
 	outName=$(ls $i"/"*_R2_*.fastq.gz | head -1)
-	outName=$(basename $outName | sed "s/_001\.fastq/\.fq/g")
+	outName=$(basename $outName | sed "s/_001//g" | sed "s/fastq/fq/g")
 	# status message
 	echo "Processing $outName ..."
 	# combine files for read 2

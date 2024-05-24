@@ -31,6 +31,7 @@ if [ $? -ne 0 ]; then
 	echo "The $qcOut directory already exsists... please remove before proceeding."
 	exit 1
 fi
+
 #Move to the new directory
 cd $qcOut
 
