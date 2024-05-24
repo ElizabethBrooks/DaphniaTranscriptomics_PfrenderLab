@@ -9,8 +9,8 @@ obtusaInPathTwo="/afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq
 pulicariaInPath="/afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulicaria/D_pulicaria_Lk16_Transcriptome/Lk16_Pool1"
 
 # retrieve output paths
-obtusaOutPath=$(grep "pairedReads:" ../"InputData/inputPaths_obtusa.txt" | tr -d " " | sed "s/pairedReads://g")
-pulicariaOutPath=$(grep "pairedReads:" ../"InputData/inputPaths_pulicaria.txt" | tr -d " " | sed "s/pairedReads://g")
+obtusaOutPath=$(grep "pairedReads:" ../"inputData/inputPaths_obtusa.txt" | tr -d " " | sed "s/pairedReads://g")
+pulicariaOutPath=$(grep "pairedReads:" ../"inputData/inputPaths_pulicaria.txt" | tr -d " " | sed "s/pairedReads://g")
 
 # obtusa
 for i in $obtusaInPathOne"/"*/*_1.fq.gz; do outName=$(basename $i); inName=$(basename $i | sed "s/_1\.fq\.gz//g" | sed "s/_/-/g"); cat $i $obtusaInPathTwo"/"$inName"/"*_1.fq.gz > $obtusaOutPath"/"$outName; done
