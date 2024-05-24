@@ -21,10 +21,17 @@ readPath=$(grep "pairedReads:" ../"InputData/"$inputsFile | tr -d " " | sed "s/p
 #Retrieve analysis outputs absolute path
 outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
 
+# create output results directory
+mkdir $outputsPath
+#Check if the folder already exists
+if [ $? -ne 0 ]; then
+	echo "The $outputsPath directory already exsists... please remove before proceeding."
+	exit 1
+fi
+
 #Make a new directory for analysis
 qcOut=$outputsPath"/qc"
 mkdir $qcOut
-
 #Check if the folder already exists
 if [ $? -ne 0 ]; then
 	echo "The $qcOut directory already exsists... please remove before proceeding."
