@@ -5,7 +5,7 @@
 #$ -N prepData_projects_jobOutput
 
 # script to perform data pre-processing and prepare RNAseq reads for analysis
-# usage: bash prepareReads.sh
+# usage: qsub prepareReads.sh
 
 # set input paths
 obtusaInPathOne="/afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_obtusa/D_obtusa_multi/multi_condition_BGI_DNBSeq/F20FTSUSAT1134_DAPfhqR/RawData"
