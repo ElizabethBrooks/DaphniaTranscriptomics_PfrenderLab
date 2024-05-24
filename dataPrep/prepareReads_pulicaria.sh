@@ -47,7 +47,7 @@ done
 for i in $pulicariaInPathTwo"/"*; do 
 	# setup output name
 	outName=$(ls $i"/"*_R1_*.fastq.gz | head -1)
-	outName=$(basename $outName | sed "s/_001//g")
+	outName=$(basename $outName | sed "s/_001\.fastq/\.fq/g")
 	# status message
 	echo "Processing $outName ..."
 	# combine files for read 1
@@ -57,7 +57,7 @@ done
 for i in $pulicariaInPathTwo"/"*; do 
 	# setup output name
 	outName=$(ls $i"/"*_R2_*.fastq.gz | head -1)
-	outName=$(basename $outName | sed "s/_001//g")
+	outName=$(basename $outName | sed "s/_001\.fastq/\.fq/g")
 	# status message
 	echo "Processing $outName ..."
 	# combine files for read 2
