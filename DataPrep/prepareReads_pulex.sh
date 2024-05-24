@@ -26,7 +26,7 @@ echo "Beginning data prep ..."
 
 # pulex
 # read 1
-for i in $pulexInPathOne"/"*/*_1.fq; do 
+for i in $pulexInPathOne"/"*_1.fq; do 
 	# setup output name
 	outName=$(basename $i | sed "s/_1\.fq/_1\.fq\.gz/g")
 	# status message
@@ -35,7 +35,7 @@ for i in $pulexInPathOne"/"*/*_1.fq; do
 	mv $i $pulexOutPath"/"$outName
 done
 # read 2
-for i in $pulexInPathOne"/"*/*_2.fq; do 
+for i in $pulexInPathOne"/"*_2.fq; do 
 	# setup output name
 	outName=$(basename $i | sed "s/_2\.fq/_2\.fq\.gz/g")
 	# status message
