@@ -55,7 +55,7 @@ else
 fi
 
 #Loop through all forward and reverse reads and run trimmomatic on each pair
-for f1 in $readPath"/"*.fq.gz; do
+for f1 in $readPath"/"*fq.gz; do
 	#Trim extension from current file name
 	curSample=$(echo $f1 | sed 's/_1\.fq\.gz//')
 	#Set paired file name
