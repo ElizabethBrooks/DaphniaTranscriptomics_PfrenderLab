@@ -5,8 +5,11 @@
 #$ -N trimmomatic_daphniaOmics_jobOutput
 #$ -pe smp 4
 
-#Script to perform trimmomatic trimming of paired end reads
-#Usage: qsub trimmomatic_daphniaOmics.sh inputsFile
+# script to perform trimmomatic trimming of paired end reads
+# usage: qsub trimmomatic_daphniaOmics.sh inputsFile
+# usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_obtusa.txt
+# usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_pulicaria.txt
+# usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_pulex.txt
 
 #Required modules for ND CRC servers
 module load bio/2.0
@@ -71,10 +74,10 @@ for f1 in "$readPath"/*_1.fq.gz; do
 	#Add run inputs to output summary file
 	echo trimmomatic PE -threads 4 -phred"$score" $f1 $f2 $sampleTag"_pForward.fq.gz" $sampleTag"_uForward.fq.gz" $sampleTag"_pReverse.fq.gz" $sampleTag"_uReverse.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10 >> $inputOutFile
 	#Clean up
-	rm -r $noPath"_1_fastqc.zip"
-	rm -r $noPath"_1_fastqc/"
-	rm -r $noPath"_2_fastqc.zip"
-	rm -r $noPath"_2_fastqc/"
+	#rm -r $noPath"_1_fastqc.zip"
+	#rm -r $noPath"_1_fastqc/"
+	#rm -r $noPath"_2_fastqc.zip"
+	#rm -r $noPath"_2_fastqc/"
 	#Print status message
 	echo "Processed!"
 done
