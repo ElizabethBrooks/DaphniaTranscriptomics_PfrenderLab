@@ -24,11 +24,6 @@ adapterPath=$(grep "adapter:" ../"InputData/"$inputsFile | tr -d " " | sed "s/ad
 #Retrieve analysis outputs absolute path
 outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
 
-#Make a new directory for project analysis
-projectDir=$(basename $readPath)
-outputsPath=$outputsPath"/"$projectDir
-mkdir $outputsPath
-
 #Make a new directory for analysis
 trimOut=$outputsPath"/trimmed"
 mkdir $trimOut
@@ -55,7 +50,7 @@ for f1 in "$readPath"/*_1.fq.gz; do
 	#Set paired file name
 	f2=$curSample"_2.fq.gz"
 	#Trim to sample tag
-	sampleTag=$(basename $f1 | sed 's/1\.fq\.gz//')
+	sampleTag=$(basename $f1 | sed 's/_1\.fq\.gz//')
 	#Print status message
 	echo "Processing $sampleTag"
 	#Determine phred score for trimming
