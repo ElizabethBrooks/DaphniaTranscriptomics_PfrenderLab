@@ -43,6 +43,19 @@ versionFile=$outputsPath"/version_summary.txt"
 echo "Trimmomatic:" >> $versionFile
 trimmomatic -version >> $versionFile
 
+# retrieve a sample file
+testFile=$(ls $outputsPath"/qc/"*_1_fastqc/fastqc_data.txt | head -1)
+
+#Determine phred score for trimming
+if grep -iF "Illumina 1.5" $testFile; then
+	score=64
+elif grep -iF "Illumina 1.9" $testFile; then
+	score=33
+else
+	echo "ERROR: Illumina encoding not found... exiting"
+	exit 1
+fi
+
 #Loop through all forward and reverse reads and run trimmomatic on each pair
 for f1 in "$readPath"/*_1.fq.gz; do
 	#Trim extension from current file name
@@ -53,26 +66,11 @@ for f1 in "$readPath"/*_1.fq.gz; do
 	sampleTag=$(basename $f1 | sed 's/_1\.fq\.gz//')
 	#Print status message
 	echo "Processing $sampleTag"
-	#Determine phred score for trimming
-	if grep -iF "Illumina 1.5" $outputsPath"/qc/"$sampleTag"_1_fastqc/fastqc_data.txt"; then
-		score=64
-	elif grep -iF "Illumina 1.9" $outputsPath"/qc/"$sampleTag"_1_fastqc/fastqc_data.txt"; then
-		score=33
-	else
-		echo "ERROR: Illumina encoding not found... exiting"
-		#echo "ERROR: Illumina encoding not found for $curSample" >> $inputOutFile
-		exit 1
-	fi
 	#Perform adapter trimming on paired reads
 	#using 4 threads
 	trimmomatic PE -threads 4 -phred"$score" $f1 $f2 $sampleTag"_pForward.fq.gz" $sampleTag"_uForward.fq.gz" $sampleTag"_pReverse.fq.gz" $sampleTag"_uReverse.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10
 	#Add run inputs to output summary file
 	echo trimmomatic PE -threads 4 -phred"$score" $f1 $f2 $sampleTag"_pForward.fq.gz" $sampleTag"_uForward.fq.gz" $sampleTag"_pReverse.fq.gz" $sampleTag"_uReverse.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10 >> $inputOutFile
-	#Clean up
-	#rm -r $noPath"_1_fastqc.zip"
-	#rm -r $noPath"_1_fastqc/"
-	#rm -r $noPath"_2_fastqc.zip"
-	#rm -r $noPath"_2_fastqc/"
 	#Print status message
 	echo "Processed!"
 done
