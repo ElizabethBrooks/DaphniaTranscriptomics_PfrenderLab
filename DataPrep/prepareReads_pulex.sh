@@ -28,36 +28,36 @@ echo "Beginning data prep ..."
 #for i in $pulexInPath"/"*.fq; do echo $i; less $i | tail -4 | head -1 | grep -v "@"; done
 
 # create folder to backup data
-mkdir $pulexOutPath"/tmp"
+mkdir $pulexInPath"/backup"
 
 # clean up truncated files and remove incomplete reads
-# Ni_2_1.fq
-cp $pulexInPath"/Ni_2_1.fq" $pulexOutPath"/tmp/Ni_2_1.fq"
-tail -n -1 $pulexOutPath"/tmp/Ni_2_1.fq" > $pulexInPath"/Ni_2_1.fq"
-# pH_3_2.fq
-cp $pulexInPath"/pH_3_2.fq" $pulexOutPath"/tmp/pH_3_2.fq"
-tail -n -1 $pulexOutPath"/tmp/pH_3_2.fq" > $pulexInPath"/pH_3_2.fq"
-# pH_4_2.fq
-cp $pulexInPath"/pH_4_2.fq" $pulexOutPath"/tmp/pH_4_2.fq"
-tail -n -2 $pulexOutPath"/tmp/pH_4_2.fq" > $pulexInPath"/pH_4_2.fq"
+# remove the last line from Ni_2_1.fq
+mv $pulexInPath"/Ni_2_1.fq" $pulexInPath"/backup/Ni_2_1.fq"
+sed '$d' $pulexInPath"/backup/Ni_2_1.fq" > $pulexInPath"/Ni_2_1.fq"
+# remove the last line from pH_3_2.fq
+mv $pulexInPath"/pH_3_2.fq" $pulexInPath"/backup/pH_3_2.fq"
+sed '$d' $pulexInPath"/backup/pH_3_2.fq" > $pulexInPath"/pH_3_2.fq"
+# remove the last two lines from pH_4_2.fq
+mv $pulexInPath"/pH_4_2.fq" $pulexInPath"/backup/pH_4_2.fq"
+sed '$d' $pulexInPath"/backup/pH_4_2.fq" | sed '$d' > $pulexInPath"/pH_4_2.fq"
 
 # pulex
 # read 1
 for i in $pulexInPath"/"*_1.fq; do 
 	# setup output name
-	outName=$(basename $i | sed "s/_1\.fq/_1\.fq\.gz/g")
+	outName=$(basename $i | sed "s/\.fq/\.fq\.gz/g")
 	# status message
 	echo "Processing $outName ..."
-	# rename files for read 1
+	# compress and rename files for read 1
 	gzip < $i > $pulexOutPath"/"$outName
 done
 # read 2
 for i in $pulexInPath"/"*_2.fq; do 
 	# setup output name
-	outName=$(basename $i | sed "s/_2\.fq/_2\.fq\.gz/g")
+	outName=$(basename $i | sed "s/\.fq/\.fq\.gz/g")
 	# status message
 	echo "Processing $outName ..."
-	# rename files for read 2
+	# compress and rename files for read 2
 	gzip < $i > $pulexOutPath"/"$outName
 done
 

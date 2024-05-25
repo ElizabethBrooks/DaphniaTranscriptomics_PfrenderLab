@@ -9,7 +9,6 @@
 # usage: qsub trimmomatic_daphniaOmics.sh inputsFile
 # usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_obtusa.txt
 # usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_pulicaria.txt
-# usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_pulex.txt
 
 #Required modules for ND CRC servers
 module load bio/2.0
@@ -57,7 +56,7 @@ else
 fi
 
 #Loop through all forward and reverse reads and run trimmomatic on each pair
-for f1 in "$readPath"/*_1.fq.gz; do
+for f1 in $readPath"/"*_1.fq.gz; do
 	#Trim extension from current file name
 	curSample=$(echo $f1 | sed 's/_1\.fq\.gz//')
 	#Set paired file name
