@@ -18,7 +18,7 @@ outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/ou
 outputsPath=$outputsPath"/trimmed"
 
 # make a new directory for analysis
-qcOut=$(dirname $outputsPath
+qcOut=$(dirname $outputsPath)
 qcOut=$qcOut"/qc_trimmed"
 
 # move to the new directory
