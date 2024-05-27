@@ -2,13 +2,13 @@
 #$ -M ebrooks5@nd.edu
 #$ -m abe
 #$ -r n
-#$ -N fastqc_daphniaOmics_jobOutput
+#$ -N fastqc_trimmed_daphniaOmics_jobOutput
 
 # script to perform fastqc quality control of paired end reads
-# usage: qsub fastqc_daphniaOmics.sh inputsFile
-# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_obtusa.txt
-# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_pulicaria.txt
-# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_pulex.txt
+# usage: qsub fastqc_trimmed_daphniaOmics.sh inputsFile
+# usage Ex: qsub fastqc_trimmed_daphniaOmics.sh inputPaths_obtusa.txt
+# usage Ex: qsub fastqc_trimmed_daphniaOmics.sh inputPaths_pulicaria.txt
+# usage Ex: qsub fastqc_trimmed_daphniaOmics.sh inputPaths_pulex.txt
 
 #Required modules for ND CRC servers
 module load bio/2.0
@@ -21,7 +21,8 @@ outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/ou
 outputsPath=$outputsPath"/trimmed"
 
 #Make a new directory for analysis
-qcOut=$outputsPath"/qc_trimmed"
+qcOut=$(dirname $outputsPath
+qcOut=$qcOut"/qc_trimmed"
 mkdir $qcOut
 #Check if the folder already exists
 if [ $? -ne 0 ]; then
