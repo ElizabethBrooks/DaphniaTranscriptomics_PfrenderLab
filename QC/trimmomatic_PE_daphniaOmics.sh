@@ -2,13 +2,13 @@
 #$ -M ebrooks5@nd.edu
 #$ -m abe
 #$ -r n
-#$ -N trimmomatic_daphniaOmics_jobOutput
+#$ -N trimmomatic_PE_daphniaOmics_jobOutput
 #$ -pe smp 4
 
 # script to perform trimmomatic trimming of paired end reads
-# usage: qsub trimmomatic_daphniaOmics.sh inputsFile
-# usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_obtusa.txt
-# usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_pulicaria.txt
+# usage: qsub trimmomatic_PE_daphniaOmics.sh inputsFile
+# usage Ex: qsub trimmomatic_PE_daphniaOmics.sh inputPaths_obtusa.txt
+# usage Ex: qsub trimmomatic_PE_daphniaOmics.sh inputPaths_pulicaria.txt
 
 #Required modules for ND CRC servers
 module load bio/2.0

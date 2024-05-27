@@ -2,12 +2,12 @@
 #$ -M ebrooks5@nd.edu
 #$ -m abe
 #$ -r n
-#$ -N trimmomatic_daphniaOmics_jobOutput
+#$ -N trimmomatic_SE_daphniaOmics_jobOutput
 #$ -pe smp 4
 
 # script to perform trimmomatic trimming of paired end reads
-# usage: qsub trimmomatic_daphniaOmics.sh inputsFile
-# usage Ex: qsub trimmomatic_daphniaOmics.sh inputPaths_pulex.txt
+# usage: qsub trimmomatic_SE_daphniaOmics.sh inputsFile
+# usage Ex: qsub trimmomatic_SE_daphniaOmics.sh inputPaths_pulex.txt
 
 #Required modules for ND CRC servers
 module load bio/2.0
@@ -57,11 +57,11 @@ fi
 #Loop through all forward and reverse reads and run trimmomatic on each pair
 for f1 in $readPath"/"*fq.gz; do
 	#Trim extension from current file name
-	curSample=$(echo $f1 | sed 's/_1\.fq\.gz//')
+	curSample=$(echo $f1 | sed 's/\.fq\.gz//')
 	#Set paired file name
 	f2=$curSample"_2.fq.gz"
 	#Trim to sample tag
-	sampleTag=$(basename $f1 | sed 's/_1\.fq\.gz//')
+	sampleTag=$(basename $f1 | sed 's/\.fq\.gz//')
 	#Print status message
 	echo "Processing $sampleTag"
 	#Perform adapter trimming on paired reads

@@ -30,7 +30,7 @@ if [ $? -ne 0 ]; then
 fi
 
 #Make a new directory for analysis
-qcOut=$outputsPath"/qc"
+qcOut=$outputsPath"/qc_raw"
 mkdir $qcOut
 #Check if the folder already exists
 if [ $? -ne 0 ]; then
