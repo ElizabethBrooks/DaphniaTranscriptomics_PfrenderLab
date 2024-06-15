@@ -8,11 +8,11 @@ firstSpecies="pulicaria"
 secondSpecies="obtusa"
 
 # retrieve inputs
-firstPep=$(grep "pulicariaPep:" ../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/pulicariaPep://g")
-secondPep=$(grep "obtusaPep:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/obtusaPep://g")
+firstPep=$(grep "pulicariaPep:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/pulicariaPep://g")
+secondPep=$(grep "obtusaPep:" ../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/obtusaPep://g")
 
 # retrieve outputs directory
-outputFolder=$(grep "outputs:" ../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/outputs://g")
+outputFolder=$(grep "outputs:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")
 
 # setup outputs directory
 outputFolder=$(dirname $outputFolder)
