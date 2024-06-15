@@ -3,13 +3,16 @@
 # script to use blastp to search to build a blast file to find RBH 
 # usage: bash search_pipeline_blastp.sh
 
+# load necessary modules for ND CRC servers
+module load bio/2.0
+
 # retrieve species tags
 firstSpecies="pulicaria"
 secondSpecies="obtusa"
 
 # retrieve inputs
-firstPep=$(grep "pulicariaPep:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/pulicariaPep://g")
-secondPep=$(grep "obtusaPep:" ../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/obtusaPep://g")
+firstPep=$(grep "proteins:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/proteins://g")
+secondPep=$(grep "proteins:" ../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/proteins://g")
 
 # retrieve outputs directory
 outputFolder=$(grep "outputs:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")

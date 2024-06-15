@@ -3,9 +3,6 @@
 # script to build a blast able database 
 # usage: bash makeDB_blastp.sh speciesPep outputFolder
 
-# load necessary modules for ND CRC servers
-module load bio/2.0
-
 # retrieve input paths
 speciesPep=$1
 
