@@ -44,10 +44,10 @@ bash makeDB_blastp.sh $firstPep $outputFolder"/"$firstSpecies"_db"
 bash makeDB_blastp.sh $secondPep $outputFolder"/"$secondSpecies"_db"
 
 # perform the first protein blast search for the single best hits
-qsub search_blastp.sh $firstPep $outputFolder"/"$secondSpecies"_db" $outputFolder $outputFolder"/"$firstSpecies"_"$secondSpecies".blast" 5
+qsub search_blastp.sh $firstPep $outputFolder"/"$secondSpecies"_db" $outputFolder $outputFolder"/"$firstSpecies"_"$secondSpecies".blast"
 
 # perform the second protein blast search for the single best hits
-qsub search_blastp.sh $secondPep $outputFolder"/"$firstSpecies"_db" $outputFolder $outputFolder"/"$secondSpecies"_"$firstSpecies".blast" 5
+qsub search_blastp.sh $secondPep $outputFolder"/"$firstSpecies"_db" $outputFolder $outputFolder"/"$secondSpecies"_"$firstSpecies".blast"
 
 # status message
 echo "Analysis complete!"
