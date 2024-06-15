@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# script to use blastp to search to build a blast file for MCScanX 
+# script to use blastp to search to build a blast file to find RBH 
 # usage: bash search_pipeline_blastp.sh
 
 # retrieve species tags
