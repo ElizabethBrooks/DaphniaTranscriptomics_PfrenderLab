@@ -8,11 +8,15 @@ firstSpecies="pulicaria"
 secondSpecies="obtusa"
 
 # retrieve inputs
-firstPep=$(grep "pulicariaPep:" ../InputData/inputs_HPC.txt | tr -d " " | sed "s/pulicariaPep://g")
-secondPep=$(grep "obtusaPep:" ../InputData/inputs_HPC.txt | tr -d " " | sed "s/obtusaPep://g")
+firstPep=$(grep "pulicariaPep:" ../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/pulicariaPep://g")
+secondPep=$(grep "obtusaPep:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/obtusaPep://g")
+
+# retrieve outputs directory
+outputFolder=$(grep "outputs:" ../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/outputs://g")
 
 # setup outputs directory
-outputFolder=$(grep "outputs:" ../InputData/inputs_HPC.txt | tr -d " " | sed "s/outputs://g")
+outputFolder=$(dirname $outputFolder)
+outputFolder=$(dirname $outputFolder)
 outputFolder=$outputFolder"/orthology_RBHB"
 
 # make output directory

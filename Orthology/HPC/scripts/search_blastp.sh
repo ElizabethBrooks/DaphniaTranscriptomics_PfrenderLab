@@ -3,7 +3,7 @@
 #$ -m abe
 #$ -r n
 #$ -N search_blastp_jobOutput
-#$ -pe smp 4
+#$ -pe smp 8
 
 # script to use blastp to search a protein file 
 # usage: qsub search_blastp.sh queryFile dbFolder outputFolder outputFile numAlign
@@ -29,7 +29,7 @@ cd $outputFolder
 echo "Beginning within genome blastp search..."
 
 # perform the protein blast search for the single best hits
-blastp -num_threads 4 -outfmt 6 -evalue 1e-5 -max_target_seqs 1 -query $queryFile -db $dbFolder -num_alignments $numAlign -out $outputFile
+blastp -num_threads 8 -outfmt 6 -evalue 1e-5 -max_target_seqs 1 -query $queryFile -db $dbFolder -num_alignments $numAlign -out $outputFile
 
 # status message
 echo "Analysis complete!"
