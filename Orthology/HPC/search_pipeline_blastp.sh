@@ -11,11 +11,11 @@ firstSpecies="pulicaria"
 secondSpecies="obtusa"
 
 # retrieve inputs
-firstPep=$(grep "proteins:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/proteins://g")
-secondPep=$(grep "proteins:" ../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/proteins://g")
+firstPep=$(grep "proteins:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/proteins://g")
+secondPep=$(grep "proteins:" ../../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/proteins://g")
 
 # retrieve outputs directory
-outputFolder=$(grep "outputs:" ../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")
+outputFolder=$(grep "outputs:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")
 
 # setup outputs directory
 outputFolder=$(dirname $outputFolder)
