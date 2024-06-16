@@ -42,5 +42,8 @@ bash search_blastp.sh $firstPep $outputFolder"/"$secondSpecies"_db" $outputFolde
 # perform the second protein blast search for the single best hits
 bash search_blastp.sh $secondPep $outputFolder"/"$firstSpecies"_db" $outputFolder $outputFolder"/"$secondSpecies"_"$firstSpecies".blast" 5
 
+# NOTE: only run this script after the previous commands have completed running and the blast outputs have finished being created
+bash find_RBH.sh $outputFolder"/"$firstSpecies"_"$secondSpecies".blast" $outputFolder"/"$secondSpecies"_"$firstSpecies".blast"
+
 # status message
 echo "Analysis complete!"
