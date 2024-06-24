@@ -3,7 +3,7 @@
 #$ -m abe
 #$ -r n
 #$ -N trimmomatic_SE_daphniaOmics_jobOutput
-#$ -pe smp 4
+#$ -pe smp 8
 
 # script to perform trimmomatic trimming of paired end reads
 # usage: qsub trimmomatic_SE_daphniaOmics.sh inputsFile
@@ -65,10 +65,9 @@ for f1 in $readPath"/"*fq.gz; do
 	#Print status message
 	echo "Processing $sampleTag"
 	#Perform adapter trimming on paired reads
-	#using 4 threads
-	trimmomatic SE -threads 4 -phred"$score" $f1 $sampleTag".trimmed.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10
+	trimmomatic SE -threads 8 -phred"$score" $f1 $sampleTag".trimmed.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10
 	#Add run inputs to output summary file
-	echo trimmomatic SE -threads 4 -phred"$score" $f1 $sampleTag".trimmed.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10 >> $inputOutFile
+	echo trimmomatic SE -threads 8 -phred"$score" $f1 $sampleTag".trimmed.fq.gz" ILLUMINACLIP:"$adapterPath":2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:60 HEADCROP:10 >> $inputOutFile
 	#Print status message
 	echo "Processed!"
 done

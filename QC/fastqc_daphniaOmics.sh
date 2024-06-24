@@ -2,24 +2,35 @@
 #$ -M ebrooks5@nd.edu
 #$ -m abe
 #$ -r n
-#$ -N fastqc_raw_daphniaOmics_jobOutput
+#$ -N fastqc_daphniaOmics_jobOutput
 
 # script to perform fastqc quality control of paired end reads
-# usage: qsub fastqc_raw_daphniaOmics.sh inputsFile
-# usage Ex: qsub fastqc_raw_daphniaOmics.sh inputPaths_obtusa.txt
-# usage Ex: qsub fastqc_raw_daphniaOmics.sh inputPaths_pulicaria.txt
-# usage Ex: qsub fastqc_raw_daphniaOmics.sh inputPaths_pulex.txt
+# usage: qsub fastqc_daphniaOmics.sh inputsFile analysisType
+# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_obtusa.txt raw
+# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_pulicaria.txt raw
+# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_obtusa.txt trimmed
+# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_pulicaria.txt trimmed
 
-#Required modules for ND CRC servers
+# required modules for ND CRC servers
 module load bio/2.0
 
-#Retrieve input argument of a inputs file
+# retrieve input argument of a inputs file
 inputsFile=$1
 
-#Retrieve paired reads absolute path for alignment
-readPath=$(grep "pairedReads:" ../"InputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
-#Retrieve analysis outputs absolute path
+# retrieve input analysis type
+analysisType=$2
+
+# retrieve analysis outputs absolute path
 outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
+
+# check input analysis type
+if [[ $analysisType == "raw" ]]; then
+	# retrieve raw paired reads absolute path for alignment
+	readPath=$(grep "pairedReads:" ../"InputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
+else
+	# retrieve trimmed reads path
+	readPath=$outputsPath"/trimmed"
+fi
 
 # create output results directory
 mkdir $outputsPath
@@ -30,7 +41,7 @@ if [ $? -ne 0 ]; then
 fi
 
 #Make a new directory for analysis
-qcOut=$outputsPath"/qc_raw"
+qcOut=$outputsPath"/qc_"$analysisType
 mkdir $qcOut
 #Check if the folder already exists
 if [ $? -ne 0 ]; then
@@ -48,11 +59,11 @@ versionFile=$qcOut"/version_summary.txt"
 fastqc -version > $versionFile
 
 #Loop through all forward and reverse reads and run trimmomatic on each pair
-for f1 in "$readPath"/*_1.fq.gz; do
+for f1 in "$readPath"/*fq.gz; do
 	#Trim path from file name
-	noPath=$(basename $f1 | sed 's/_1\.fq\.gz//')
+	noPath=$(basename $f1 | sed 's/\.fq\.gz//')
 	#Trim extension from current file name
-	curSample=$(echo $f1 | sed 's/_1\.fq\.gz//')
+	curSample=$(echo $f1 | sed 's/\.fq\.gz//')
 	#Set paired file name
 	f2=$curSample"_2.fq.gz"
 	#Print status message
