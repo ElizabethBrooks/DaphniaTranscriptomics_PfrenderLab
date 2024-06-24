@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# script to use blastp to search protein files 
+# script to use blastp to search a protein file against a blastable database
 # usage: bash search_blastp.sh queryFile dbFolder outputFolder outputFile numAlign
 
 # retrieve input paths

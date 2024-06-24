@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# script to use blastp to search to build a blast file to find RBH 
+# pipeline driver script to build a blastable database, perform blastp searches, and find RBHs
 # usage: bash search_pipeline_blastp.sh
 
 # load necessary modules for ND CRC servers

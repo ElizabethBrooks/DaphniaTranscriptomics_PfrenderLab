@@ -5,7 +5,7 @@
 #$ -N search_blastp_jobOutput
 #$ -pe smp 8
 
-# script to use blastp to search a protein file 
+# script to use blastp to search a protein file against a blastable database
 # usage: qsub search_blastp.sh queryFile dbFolder outputFolder outputFile
 
 # load necessary modules for ND CRC servers
