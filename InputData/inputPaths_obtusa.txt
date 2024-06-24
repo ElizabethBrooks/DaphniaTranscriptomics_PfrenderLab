@@ -2,5 +2,5 @@ pairedReads: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_o
 adapter: /afs/crc.nd.edu/x86_64_linux/bio/Trimmomatic/0.32/adapters/TruSeq3-PE.fa
 genomeReference: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_obtusa/GenomicData/D.obtusa_2.0_annotation/D.obtusa_v2.0.masked.fasta
 genomeFeatures: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_obtusa/GenomicData/D.obtusa_2.0_annotation/D.obtusa_v2.0.masked.gtf
-proteins: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_obtusa/GenomicData/D.obtusa_2.0_annotation/D.obtusa_v2.0.masked.aa.fasta
+proteins: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_obtusa/GenomicData/D.obtusa_2.0_annotation/D.obtusa_v2.0.masked.aa.fmt.fasta
 outputs: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_obtusa/Results

@@ -2,5 +2,5 @@ pairedReads: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_p
 adapter: /afs/crc.nd.edu/x86_64_linux/bio/Trimmomatic/0.32/adapters/TruSeq3-PE.fa
 genomeReference: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulicaria/GenomicData/D.pulicaria_LK16_1.3_annotation/D.pulicaria_LARRY_HIC_final.fasta
 genomeFeatures: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulicaria/GenomicData/D.pulicaria_LK16_1.3_annotation/D.pulicaria_LARRY_HIC_final.gtf
-proteins: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulicaria/GenomicData/D.pulicaria_LK16_1.3_annotation/D.pulicaria_LARRY_HIC_final.aa.fasta
+proteins: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulicaria/GenomicData/D.pulicaria_LK16_1.3_annotation/D.pulicaria_LARRY_HIC_final.aa.fmt.fasta
 outputs: /afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulicaria/Results
