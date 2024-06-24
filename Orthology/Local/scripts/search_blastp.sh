@@ -14,9 +14,6 @@ outputFile=$4
 # retrieve input number of alignments for blastp
 numAlign=$5
 
-# move to output folder
-cd $outputFolder
-
 # status message
 echo "Beginning within genome blastp search..."
 

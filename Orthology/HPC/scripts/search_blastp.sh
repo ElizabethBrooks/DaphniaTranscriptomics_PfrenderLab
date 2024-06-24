@@ -19,9 +19,6 @@ dbFolder=$2
 outputFolder=$3
 outputFile=$4
 
-# move to output folder
-cd $outputFolder
-
 # status message
 echo "Beginning within genome blastp search..."
 

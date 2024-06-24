@@ -31,7 +31,7 @@ versionFile=$qcOut"/version_summary.txt"
 multiqc --version >> $versionFile
 
 # run multiqc
-multiqc $qcOut"/"
+multiqc $qcOut
 
 #Print status message
 echo "Analysis complete!"
