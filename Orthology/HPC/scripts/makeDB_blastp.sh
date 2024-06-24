@@ -16,4 +16,4 @@ echo "Building blast able databases..."
 makeblastdb -in $speciesPep -out $outputFolder -dbtype prot
 
 # status message
-echo "Analysis complete!"
+echo "Building complete!"

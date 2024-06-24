@@ -35,7 +35,7 @@ mkdir $outputFolder
 cd scripts
 
 # status message
-echo "Beginning analysis..."
+echo "Beginning search pipeline..."
 
 # make the first blast able database
 bash makeDB_blastp.sh $firstPep $outputFolder"/"$firstSpecies"_db"
@@ -50,4 +50,4 @@ qsub search_blastp.sh $firstPep $outputFolder"/"$secondSpecies"_db" $outputFolde
 qsub search_blastp.sh $secondPep $outputFolder"/"$firstSpecies"_db" $outputFolder $outputFolder"/"$secondSpecies"_"$firstSpecies".blast"
 
 # status message
-echo "Analysis complete!"
+echo "Search pipeline running!"

@@ -21,4 +21,4 @@ echo "Beginning within genome blastp search..."
 blastp -num_threads 4 -outfmt 6 -evalue 1e-5 -max_target_seqs 1 -query $queryFile -db $dbFolder -num_alignments $numAlign -out $outputFile
 
 # status message
-echo "Analysis complete!"
+echo "Search complete!"

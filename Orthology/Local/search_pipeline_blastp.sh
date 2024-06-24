@@ -28,7 +28,7 @@ mkdir $outputFolder
 cd scripts
 
 # status message
-echo "Beginning analysis..."
+echo "Beginning search pipeline..."
 
 # make the first blast able database
 bash makeDB_blastp.sh $firstPep $outputFolder"/"$firstSpecies"_db"
@@ -46,4 +46,4 @@ bash search_blastp.sh $secondPep $outputFolder"/"$firstSpecies"_db" $outputFolde
 bash find_RBH.sh $outputFolder"/"$firstSpecies"_"$secondSpecies".blast" $outputFolder"/"$secondSpecies"_"$firstSpecies".blast"
 
 # status message
-echo "Analysis complete!"
+echo "Search pipeline complete!"
