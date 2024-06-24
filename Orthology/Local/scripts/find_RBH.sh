@@ -11,11 +11,10 @@ secondBlast=$2
 outputFile=$(echo $firstBlast | sed "s/\.blast/_RBH.csv/g")
 
 # retrieve blastp comparison tags
-firstComparison=$(basename $firstBlast | sed "s/\.blast//g")
-secondComparison=$(basename $secondBlast | sed "s/\.blast//g")
+comparison=$(basename $firstBlast | sed "s/\.blast//g")
 
 # add header in csv format
-echo $firstComparison | sed "s/_/,/g" > $outputFile
+echo $comparison | sed "s/_/,/g" > $outputFile
 
 # status message
 echo "Finding RBHs..."

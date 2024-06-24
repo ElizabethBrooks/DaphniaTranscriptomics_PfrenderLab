@@ -19,6 +19,10 @@ dbFolder=$2
 outputFolder=$3
 outputFile=$4
 
+# retrieve species names
+firstSpecies=$(basename $outputFolder | cut -d"_" -f1)
+secondSpecies=$(basename $outputFolder | cut -d"_" -f2)
+
 # status message
 echo "Beginning within genome blastp search..."
 
