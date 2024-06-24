@@ -17,7 +17,7 @@ secondPep=$(grep "proteins:" ../../InputData/inputPaths_obtusa.txt | tr -d " " |
 # retrieve outputs directory
 outputFolder=$(grep "outputs:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")
 
-# setup outputs directory
+# setup outputs directory two levels up in the tree
 outputFolder=$(dirname $outputFolder)
 outputFolder=$(dirname $outputFolder)
 outputFolder=$outputFolder"/orthology_RBHB"
