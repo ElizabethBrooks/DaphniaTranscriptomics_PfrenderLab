@@ -7,14 +7,14 @@
 module load bio/2.0
 
 # retrieve species tags
-firstSpecies="pulicaria"
-secondSpecies="obtusa"
+firstSpecies=$(grep "firstSpecies:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/firstSpecies://g")
+secondSpecies=$(grep "secondSpecies:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/secondSpecies://g")
 
 # retrieve inputs
 #firstPep=$(grep "proteins:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/proteins://g")
 #secondPep=$(grep "proteins:" ../../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/proteins://g")
-firstPep=$(grep "pulicaria:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/pulicaria://g")
-secondPep=$(grep "obtusa:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/obtusa://g")
+firstPep=$(grep "firstPep:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/firstPep://g")
+secondPep=$(grep "secondPep:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/secondPep://g")
 
 # retrieve outputs directory
 #outputFolder=$(grep "outputs:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")
