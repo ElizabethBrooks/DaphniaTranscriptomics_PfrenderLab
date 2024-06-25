@@ -11,15 +11,18 @@ firstSpecies="pulicaria"
 secondSpecies="obtusa"
 
 # retrieve inputs
-firstPep=$(grep "proteins:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/proteins://g")
-secondPep=$(grep "proteins:" ../../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/proteins://g")
+#firstPep=$(grep "proteins:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/proteins://g")
+#secondPep=$(grep "proteins:" ../../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/proteins://g")
+firstPep=$(grep "pulicaria:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/pulicaria://g")
+secondPep=$(grep "obtusa:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/obtusa://g")
 
 # retrieve outputs directory
-outputFolder=$(grep "outputs:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")
+#outputFolder=$(grep "outputs:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")
+outputFolder=$(grep "outputs:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/outputs://g")
 
 # setup outputs directory two levels up in the tree
-outputFolder=$(dirname $outputFolder)
-outputFolder=$(dirname $outputFolder)
+#outputFolder=$(dirname $outputFolder)
+#outputFolder=$(dirname $outputFolder)
 outputFolder=$outputFolder"/orthology_RBHB"
 
 # make output directory
