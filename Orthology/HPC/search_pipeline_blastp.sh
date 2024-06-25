@@ -11,18 +11,13 @@ firstSpecies=$(grep "firstSpecies:" ../../InputData/inputPaths_RBHB_HPC.txt | tr
 secondSpecies=$(grep "secondSpecies:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/secondSpecies://g")
 
 # retrieve inputs
-#firstPep=$(grep "proteins:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/proteins://g")
-#secondPep=$(grep "proteins:" ../../InputData/inputPaths_obtusa.txt | tr -d " " | sed "s/proteins://g")
 firstPep=$(grep "firstPep:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/firstPep://g")
 secondPep=$(grep "secondPep:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/secondPep://g")
 
 # retrieve outputs directory
-#outputFolder=$(grep "outputs:" ../../InputData/inputPaths_pulicaria.txt | tr -d " " | sed "s/outputs://g")
 outputFolder=$(grep "outputs:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/outputs://g")
 
-# setup outputs directory two levels up in the tree
-#outputFolder=$(dirname $outputFolder)
-#outputFolder=$(dirname $outputFolder)
+# setup outputs directory
 outputFolder=$outputFolder"/orthology_RBHB"
 
 # make output directory

@@ -7,12 +7,18 @@
 firstSpecies="pulicaria"
 secondSpecies="obtusa"
 
+# retrieve species tags
+firstSpecies=$(grep "firstSpecies:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/firstSpecies://g")
+secondSpecies=$(grep "secondSpecies:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/secondSpecies://g")
+
 # retrieve inputs
-firstPep=$(grep "pulicariaPep:" ../InputData/inputs_local.txt | tr -d " " | sed "s/pulicariaPep://g")
-secondPep=$(grep "obtusaPep:" ../InputData/inputs_local.txt | tr -d " " | sed "s/obtusaPep://g")
+firstPep=$(grep "firstPep:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/firstPep://g")
+secondPep=$(grep "secondPep:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/secondPep://g")
+
+# retrieve outputs directory
+outputFolder=$(grep "outputs:" ../../InputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/outputs://g")
 
 # setup outputs directory
-outputFolder=$(grep "outputs:" ../InputData/inputs_local.txt | tr -d " " | sed "s/outputs://g")
 outputFolder=$outputFolder"/orthology_RBHB"
 
 # make output directory
@@ -37,10 +43,10 @@ bash makeDB_blastp.sh $firstPep $outputFolder"/"$firstSpecies"_db"
 bash makeDB_blastp.sh $secondPep $outputFolder"/"$secondSpecies"_db"
 
 # perform the first protein blast search for the single best hits
-bash search_blastp.sh $firstPep $outputFolder"/"$secondSpecies"_db" $outputFolder $outputFolder"/"$firstSpecies"_"$secondSpecies".blast" 5
+bash search_blastp.sh $firstPep $outputFolder"/"$secondSpecies"_db" $outputFolder"/"$firstSpecies"_"$secondSpecies".blast"
 
 # perform the second protein blast search for the single best hits
-bash search_blastp.sh $secondPep $outputFolder"/"$firstSpecies"_db" $outputFolder $outputFolder"/"$secondSpecies"_"$firstSpecies".blast" 5
+bash search_blastp.sh $secondPep $outputFolder"/"$firstSpecies"_db" $outputFolder"/"$secondSpecies"_"$firstSpecies".blast"
 
 # NOTE: only run this script after the previous commands have completed running and the blast outputs have finished being created
 bash find_RBH.sh $outputFolder"/"$firstSpecies"_"$secondSpecies".blast" $outputFolder"/"$secondSpecies"_"$firstSpecies".blast"
