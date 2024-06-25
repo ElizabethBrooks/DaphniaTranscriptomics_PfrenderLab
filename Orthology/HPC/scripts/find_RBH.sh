@@ -30,7 +30,7 @@ do
 done < $firstBlast
 
 # convert transcript IDs to gene IDs and remove duplicate entries
-cat $outputFile | sed "s/\.t.//g" | awk -F, '!seen[$1]++' | awk -F, '!seen[$2]++' > $outputGenes
+cat $outputProt | sed "s/\.t.//g" | awk -F, '!seen[$1]++' | awk -F, '!seen[$2]++' > $outputGenes
 
 # status message
 echo "RBHs Found!"
