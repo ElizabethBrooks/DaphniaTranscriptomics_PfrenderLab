@@ -1,2 +1,0 @@
-species: D_pulicaria_SC_F0-13Bv2_NCBI
-inputs_EGAPx: inputs_SC_F0-13Bv2_NCBI.yaml
