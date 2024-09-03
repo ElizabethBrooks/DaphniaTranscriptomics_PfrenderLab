@@ -20,10 +20,10 @@ inputSpecies=$2
 inputID=$2
 
 # retrieve software path
-softwarePath=$(grep "software_SRA:" ../"inputData/inputPaths.txt" | tr -d " " | sed "s/software_SRA://g")
+softwarePath=$(grep "software_SRA:" ../"inputData/inputPaths_annotations.txt" | tr -d " " | sed "s/software_SRA://g")
 
 # retrieve outputs path
-outputsPath=$(grep "outputs_SRA:" ../"inputData/inputPaths.txt" | tr -d " " | sed "s/outputs_SRA://g")
+outputsPath=$(grep "outputs_SRA:" ../"inputData/inputPaths_annotations.txt" | tr -d " " | sed "s/outputs_SRA://g")
 
 # name species outputs directory
 outDir=$outputsPath"/dump_"$inputSpecies
