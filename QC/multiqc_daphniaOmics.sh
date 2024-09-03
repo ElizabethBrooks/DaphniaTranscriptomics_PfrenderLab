@@ -14,7 +14,7 @@ inputsFile=$1
 analysisType=$2
 
 # retrieve analysis outputs absolute path
-outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
+outputsPath=$(grep "outputs:" ../"inputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
 
 # retrieve directory for analysis
 qcOut=$outputsPath"/qc_"$analysisType

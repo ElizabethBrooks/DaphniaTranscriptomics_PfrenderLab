@@ -11,11 +11,11 @@ module load bio
 inputsFile=$1
 
 #Retrieve paired reads absolute path for alignment
-readPath=$(grep "pairedReads:" ../"InputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
+readPath=$(grep "pairedReads:" ../"inputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
 #Retrieve analysis outputs absolute path
-outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
+outputsPath=$(grep "outputs:" ../"inputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
 #Retrieve genome features absolute path for alignment
-guideFile=$(grep "guideFile:" ../"InputData/"$inputsFile | tr -d " " | sed "s/guideFile://g")
+guideFile=$(grep "guideFile:" ../"inputData/"$inputsFile | tr -d " " | sed "s/guideFile://g")
 
 #Make a new directory for project analysis
 projectDir=$(basename $readPath)

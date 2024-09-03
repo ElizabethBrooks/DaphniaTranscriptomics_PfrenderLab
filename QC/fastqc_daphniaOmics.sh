@@ -21,12 +21,12 @@ inputsFile=$1
 analysisType=$2
 
 # retrieve analysis outputs absolute path
-outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
+outputsPath=$(grep "outputs:" ../"inputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
 
 # check input analysis type
 if [[ $analysisType == "raw" ]]; then
 	# retrieve raw paired reads absolute path for alignment
-	readPath=$(grep "pairedReads:" ../"InputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
+	readPath=$(grep "pairedReads:" ../"inputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
 else
 	# retrieve trimmed reads path
 	readPath=$outputsPath"/trimmed"

@@ -16,11 +16,11 @@ module load bio/2.0
 inputsFile=$1
 
 #Retrieve paired reads absolute path for alignment
-readPath=$(grep "pairedReads:" ../"InputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
+readPath=$(grep "pairedReads:" ../"inputData/"$inputsFile | tr -d " " | sed "s/pairedReads://g")
 #Retrieve adapter absolute path for alignment
-adapterPath=$(grep "adapter:" ../"InputData/"$inputsFile | tr -d " " | sed "s/adapter://g")
+adapterPath=$(grep "adapter:" ../"inputData/"$inputsFile | tr -d " " | sed "s/adapter://g")
 #Retrieve analysis outputs absolute path
-outputsPath=$(grep "outputs:" ../"InputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
+outputsPath=$(grep "outputs:" ../"inputData/"$inputsFile | tr -d " " | sed "s/outputs://g")
 
 #Make a new directory for analysis
 trimOut=$outputsPath"/trimmed"
