@@ -1,0 +1,2 @@
+species: D_pulicaria_LK16_SRA
+inputs_EGAPx: inputs_LK16_SRA.yaml
