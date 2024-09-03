@@ -6,15 +6,12 @@
 #$ -pe smp 8
 
 # script to download formatted SRA reads for EGAPx
-# usage: download_SRA_reads_EGAPx.sh species ID
-# usage ex: download_SRA_reads_EGAPx.sh LK16 DRP002580
-# usage ex: download_SRA_reads_EGAPx.sh LK16 SRP068113
-# usage ex: download_SRA_reads_EGAPx.sh LK16 SRP102491
-# usage ex: download_SRA_reads_EGAPx.sh LK16 SRP253589
-# usage ex: download_SRA_reads_EGAPx.sh LK16 SRP318178
-
-# retrieve software path
-softwarePath=$(grep "software_SRA:" ../"inputData/inputPaths.txt" | tr -d " " | sed "s/software_SRA://g")
+# usage: qsub download_SRA_reads_EGAPx.sh species ID
+# usage ex: qsub download_SRA_reads_EGAPx.sh LK16 DRP002580
+# usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP068113
+# usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP102491
+# usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP253589
+# usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP318178
 
 # retrieve input species
 inputSpecies=$2
@@ -22,8 +19,14 @@ inputSpecies=$2
 # retrieve input SRA ID
 inputID=$2
 
+# retrieve software path
+softwarePath=$(grep "software_SRA:" ../"inputData/inputPaths.txt" | tr -d " " | sed "s/software_SRA://g")
+
+# retrieve outputs path
+outputsPath=$(grep "outputs_SRA:" ../"inputData/inputPaths.txt" | tr -d " " | sed "s/outputs_SRA://g")
+
 # name species outputs directory
-outDir="dump_"$inputSpecies
+outDir=$outputsPath"/dump_"$inputSpecies
 
 # make species directory for the formatted data
 mkdir $outDir

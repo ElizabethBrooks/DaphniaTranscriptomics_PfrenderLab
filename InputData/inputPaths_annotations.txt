@@ -5,4 +5,4 @@ software_BRAKER3: /afs/crc.nd.edu/user/e/ebrooks5/braker3
 outputs_EGAPx: /scratch365/ebrooks5/multi_genome_project/EGAPx
 outputs_EGAPx_v0.2: /afs/crc.nd.edu/group/pfrenderlab/curie/ebrooks/multi_genome_project/EGAPx_v0.2_tests
 outputs_BRAKER3: /scratch365/ebrooks5/multi_genome_project/BRAKER3
-outputs_SRA: /scratch365/ebrooks5/multi_genome_project/data
+outputs_SRA: /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data
