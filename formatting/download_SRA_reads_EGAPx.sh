@@ -10,7 +10,7 @@
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 DRP002580
 ## job 793225, 793310, 793317
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP068113
-## job 793230, 793322
+## job 793230, 793322, 793422
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP102491
 ## job 793231, 793324
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP253589
@@ -57,6 +57,7 @@ for i in $outDir"/"*"/"; do
 	sraID=$(basename $i)
 	# status message
 	echo "Processing $sraID ..."
+	# retrieve SRA data
 	$softwarePath"/"fasterq-dump --skip-technical --threads 8 --split-files --seq-defline ">\$ac.\$si.\$ri" --fasta -O $outDir"/"  ./$sraID
 done
 
