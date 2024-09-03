@@ -2,4 +2,4 @@ genome: /afs/crc.nd.edu/group/pfrenderlab/mendel/DaphniaGenomes/1_all_chromosome
 taxid: 35523
 reads:
   - /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data/test/18CRep1_ATCACG_L001_R1.concat.fq.gz
-  - /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data/test/18CRep1_ATCACG_L001_R1.concat.fq.gz
+  - /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data/test/18CRep1_ATCACG_L001_R2.concat.fq.gz

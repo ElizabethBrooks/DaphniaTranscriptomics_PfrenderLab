@@ -8,7 +8,7 @@
 # script to run the EGAPx pipeline
 # usage: qsub run_EGAPx_v0.2.sh inputFile
 # usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_SRA_test.txt
-## job 
+## job 793426
 # usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_trimmed_test.txt
 ## job 
 
