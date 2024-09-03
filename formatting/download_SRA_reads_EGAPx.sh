@@ -14,7 +14,7 @@
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP318178
 
 # retrieve input species
-inputSpecies=$2
+inputSpecies=$1
 
 # retrieve input SRA ID
 inputID=$2
@@ -31,14 +31,14 @@ outDir=$outputsPath"/dump_"$inputSpecies
 # make species directory for the formatted data
 mkdir $outDir
 
-# move to species directory, since SRA tools caches data in the working directory
-cd $outDir
-
 # name SRA ID outputs directory
-outDir=$outDir"/"$inputID
+outDir=$outDir"/dump_"$inputID
 
 # make SRA ID directory for the formatted data
 mkdir $outDir
+
+# move to outputs directory, since SRA tools caches data in the working directory
+cd $outDir
 
 # download formated reads
 prefetch $inputID
