@@ -6,8 +6,8 @@
 #$ -pe smp 8
 #Script to perform hisat2 alignment of trimmed paired end reads
 #Usage: qsub hisat2_projects.sh inputsFile
-#Usage Ex: qsub hisat2_projects.sh inputPaths_yoon_adipocyte_July2022.txt
-#Usage Ex: qsub hisat2_projects.sh inputPaths_yoon_junkrat_July2022.txt
+#Usage Ex: qsub hisat2_projects.sh inputs_yoon_adipocyte_July2022.txt
+#Usage Ex: qsub hisat2_projects.sh inputs_yoon_junkrat_July2022.txt
 
 #Required modules for ND CRC servers
 module load bio

@@ -4,8 +4,8 @@
 #$ -r n
 #$ -N htseq_projects_jobOutput
 #Script to run htseq-count on trimmed, aligned, and name sorted paired end reads
-#Usage Ex: qsub htseq_projects.sh inputPaths_yoon_adipocyte_July2022.txt
-#Usage Ex: qsub htseq_projects.sh inputPaths_yoon_junkrat_July2022.txt
+#Usage Ex: qsub htseq_projects.sh inputs_yoon_adipocyte_July2022.txt
+#Usage Ex: qsub htseq_projects.sh inputs_yoon_junkrat_July2022.txt
 
 #Required modules for ND CRC servers
 module load bio

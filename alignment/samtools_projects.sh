@@ -6,8 +6,8 @@
 #$ -pe smp 8
 #Script to perform samtools sorting of trimmed and aligned paired end reads
 #Usage: qsub samtools_projects.sh inputsFile
-#Usage Ex: qsub samtools_projects.sh inputPaths_yoon_adipocyte_July2022.txt
-#Usage Ex: qsub samtools_projects.sh inputPaths_yoon_junkrat_July2022.txt
+#Usage Ex: qsub samtools_projects.sh inputs_yoon_adipocyte_July2022.txt
+#Usage Ex: qsub samtools_projects.sh inputs_yoon_junkrat_July2022.txt
 
 #Required modules for ND CRC servers
 module load bio

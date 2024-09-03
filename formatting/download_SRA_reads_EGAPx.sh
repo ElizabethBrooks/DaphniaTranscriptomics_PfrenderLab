@@ -8,10 +8,15 @@
 # script to download formatted SRA reads for EGAPx
 # usage: qsub download_SRA_reads_EGAPx.sh species ID
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 DRP002580
+## job 793225
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP068113
+## job 793230
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP102491
+## job 793231
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP253589
+## job 793232
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP318178
+## job 793234
 
 # retrieve input species
 inputSpecies=$1
@@ -20,10 +25,10 @@ inputSpecies=$1
 inputID=$2
 
 # retrieve software path
-softwarePath=$(grep "software_SRA:" ../"inputData/inputPaths_annotations.txt" | tr -d " " | sed "s/software_SRA://g")
+softwarePath=$(grep "software_SRA:" ../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/software_SRA://g")
 
 # retrieve outputs path
-outputsPath=$(grep "outputs_SRA:" ../"inputData/inputPaths_annotations.txt" | tr -d " " | sed "s/outputs_SRA://g")
+outputsPath=$(grep "outputs_SRA:" ../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_SRA://g")
 
 # name species outputs directory
 outDir=$outputsPath"/dump_"$inputSpecies
@@ -43,7 +48,15 @@ cd $outDir
 # download formated reads
 prefetch $inputID
 
+# status message
+echo "Beginning analysis..."
+
 # loop over each SRA ID retrieved using prefetch
-for i in $outDir"/"*"/"; do
+for i in $outDir"/"*; do
+	# status message
+	echo "Processing $i ..."
 	$softwarePath"/"fasterq-dump --skip-technical --threads 8 --split-files --seq-defline ">\$ac.\$si.\$ri" --fasta -O $outDir"/"  ./$i
 done
+
+# status message
+echo "Analysis complete!"

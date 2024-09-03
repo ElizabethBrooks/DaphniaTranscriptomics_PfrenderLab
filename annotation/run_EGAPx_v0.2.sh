@@ -1,4 +1,5 @@
 #!/bin/bash
+#$ -M ebrooks5@nd.edu
 #$ -m abe
 #$ -r n
 #$ -N run_EGAPx_v0.2_jobOutput
@@ -6,6 +7,8 @@
 
 # script to run the EGAPx pipeline
 # usage: qsub run_EGAPx_v0.2.sh inputFile
+# usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_NCBI_test.txt
+## job 
 # usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_NCBI.txt
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
@@ -28,10 +31,10 @@ repoDir=$(dirname $PWD)
 inputsPath=$repoDir"/inputData/"$inputsPath
 
 # retrieve software path
-softwarePath=$(grep "software_EGAPx_v0.2:" ../"inputData/inputPaths_annotations.txt" | tr -d " " | sed "s/software_EGAPx_v0.2://g")
+softwarePath=$(grep "software_EGAPx_v0.2:" ../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/software_EGAPx_v0.2://g")
 
 # retrieve outputs path
-outputsPath=$(grep "outputs_EGAPx_v0.2:" ../"inputData/inputPaths_annotations.txt" | tr -d " " | sed "s/outputs_EGAPx_v0.2://g")
+outputsPath=$(grep "outputs_EGAPx_v0.2:" ../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_EGAPx_v0.2://g")
 
 # setup outputs directory
 outputsPath=$outputsPath"/"$speciesName

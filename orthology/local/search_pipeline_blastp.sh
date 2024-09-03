@@ -8,15 +8,15 @@ firstSpecies="pulicaria"
 secondSpecies="obtusa"
 
 # retrieve species tags
-firstSpecies=$(grep "firstSpecies:" ../../inputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/firstSpecies://g")
-secondSpecies=$(grep "secondSpecies:" ../../inputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/secondSpecies://g")
+firstSpecies=$(grep "firstSpecies:" ../../inputData/inputs_RBHB_HPC.txt | tr -d " " | sed "s/firstSpecies://g")
+secondSpecies=$(grep "secondSpecies:" ../../inputData/inputs_RBHB_HPC.txt | tr -d " " | sed "s/secondSpecies://g")
 
 # retrieve inputs
-firstPep=$(grep "firstPep:" ../../inputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/firstPep://g")
-secondPep=$(grep "secondPep:" ../../inputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/secondPep://g")
+firstPep=$(grep "firstPep:" ../../inputData/inputs_RBHB_HPC.txt | tr -d " " | sed "s/firstPep://g")
+secondPep=$(grep "secondPep:" ../../inputData/inputs_RBHB_HPC.txt | tr -d " " | sed "s/secondPep://g")
 
 # retrieve outputs directory
-outputFolder=$(grep "outputs:" ../../inputData/inputPaths_RBHB_HPC.txt | tr -d " " | sed "s/outputs://g")
+outputFolder=$(grep "outputs:" ../../inputData/inputs_RBHB_HPC.txt | tr -d " " | sed "s/outputs://g")
 
 # setup outputs directory
 outputFolder=$outputFolder"/orthology_RBHB"

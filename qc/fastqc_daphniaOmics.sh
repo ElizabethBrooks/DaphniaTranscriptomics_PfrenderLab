@@ -6,10 +6,10 @@
 
 # script to perform fastqc quality control of paired end reads
 # usage: qsub fastqc_daphniaOmics.sh inputsFile analysisType
-# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_obtusa.txt raw
-# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_pulicaria.txt raw
-# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_obtusa.txt trimmed
-# usage Ex: qsub fastqc_daphniaOmics.sh inputPaths_pulicaria.txt trimmed
+# usage Ex: qsub fastqc_daphniaOmics.sh inputs_obtusa.txt raw
+# usage Ex: qsub fastqc_daphniaOmics.sh inputs_pulicaria.txt raw
+# usage Ex: qsub fastqc_daphniaOmics.sh inputs_obtusa.txt trimmed
+# usage Ex: qsub fastqc_daphniaOmics.sh inputs_pulicaria.txt trimmed
 
 # required modules for ND CRC servers
 module load bio/2.0

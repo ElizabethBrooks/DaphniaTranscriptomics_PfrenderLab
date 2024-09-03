@@ -7,7 +7,7 @@
 
 # script to perform trimmomatic trimming of paired end reads
 # usage: qsub trimmomatic_SE_daphniaOmics.sh inputsFile
-# usage Ex: qsub trimmomatic_SE_daphniaOmics.sh inputPaths_pulex.txt
+# usage Ex: qsub trimmomatic_SE_daphniaOmics.sh inputs_pulex.txt
 
 #Required modules for ND CRC servers
 module load bio/2.0

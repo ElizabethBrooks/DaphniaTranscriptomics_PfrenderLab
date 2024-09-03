@@ -11,7 +11,7 @@
 pulexInPath="/afs/crc.nd.edu/group/pfrenderlab/mendel/ebrooks/Daphnia_RNAseq/D_pulex/PA42_trans"
 
 # retrieve output paths
-pulexOutPath=$(grep "pairedReads:" ../"inputData/inputPaths_pulex.txt" | tr -d " " | sed "s/pairedReads://g")
+pulexOutPath=$(grep "pairedReads:" ../"inputData/inputs_pulex.txt" | tr -d " " | sed "s/pairedReads://g")
 
 # create output directories
 mkdir $pulexOutPath

@@ -2,10 +2,10 @@
 
 # script to create a multiqc report
 # usage: bash multiqc_daphniaOmics.sh inputsFile analysisType
-# usage Ex: bash multiqc_daphniaOmics.sh inputPaths_obtusa.txt raw
-# usage Ex: bash multiqc_daphniaOmics.sh inputPaths_pulicaria.txt raw
-# usage Ex: bash multiqc_daphniaOmics.sh inputPaths_obtusa.txt trimmed
-# usage Ex: bash multiqc_daphniaOmics.sh inputPaths_pulicaria.txt trimmed
+# usage Ex: bash multiqc_daphniaOmics.sh inputs_obtusa.txt raw
+# usage Ex: bash multiqc_daphniaOmics.sh inputs_pulicaria.txt raw
+# usage Ex: bash multiqc_daphniaOmics.sh inputs_obtusa.txt trimmed
+# usage Ex: bash multiqc_daphniaOmics.sh inputs_pulicaria.txt trimmed
 
 # retrieve input argument of a inputs file
 inputsFile=$1

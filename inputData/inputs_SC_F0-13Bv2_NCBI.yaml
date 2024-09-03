@@ -1,0 +1,8 @@
+genome: /afs/crc.nd.edu/group/pfrenderlab/mendel/DaphniaGenomes/daphnia_pulicaria_SC_F0-13Bv2/GCA_021234035.2/GCA_021234035.2_SC_F0-13Bv2_genomic.fna
+taxid: 35523
+reads_ids:
+  - DRP002580
+  - SRP068113
+  - SRP102491
+  - SRP253589
+  - SRP318178
