@@ -8,7 +8,7 @@
 # script to download formatted SRA reads for EGAPx
 # usage: qsub download_SRA_reads_EGAPx.sh species ID
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 DRP002580
-## job 793225
+## job 793225, 793310
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP068113
 ## job 793230
 # usage ex: qsub download_SRA_reads_EGAPx.sh LK16 SRP102491
@@ -53,9 +53,11 @@ echo "Beginning analysis..."
 
 # loop over each SRA ID retrieved using prefetch
 for i in $outDir"/"*; do
+	# retrieve SRA ID
+	sraID=$(basename $i)
 	# status message
-	echo "Processing $i ..."
-	$softwarePath"/"fasterq-dump --skip-technical --threads 8 --split-files --seq-defline ">\$ac.\$si.\$ri" --fasta -O $outDir"/"  ./$i
+	echo "Processing $sraID ..."
+	$softwarePath"/"fasterq-dump --skip-technical --threads 8 --split-files --seq-defline ">\$ac.\$si.\$ri" --fasta -O $outDir"/"  ./$sraID
 done
 
 # status message
