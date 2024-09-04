@@ -31,8 +31,16 @@ It is also possible to set the config using the -c or --config-dir CONFIG_DIR fl
 
 #### inputData
 
-##### reads - EGAPx v0.1
-The read files need to be formatted very specifically, see the <i>download_SRA_reads_EGAPx.sh</i> script in the <b>dev/formatting</b> directory. This is because EGAPx expects that input "reads" are a list of FASTA read files, expects pairs in form SRAxxx.1, SRAxxx.2 (see the <i>egapx/nf/./subworkflows/ncbi/./rnaseq_short/star_wnode/main.nf</i> file).
+##### reads
+The read files need to be formatted very specifically, see the <i>format_trimmed_reads_EGAPx.sh</i> script in the <b>formatting</b> directory.
+
+###### EGAPx v0.1
+EGAPx v0.1 expects the headers to simple, such as single words (e.g., read ID or name) with no extra spaces or strange symbols.
+
+EGAPx v0.1 expects that input reads are a list of FASTA read files, which are named in the form SRAxxx.1, SRAxxx.2 (see the <i>egapx/nf/./subworkflows/ncbi/./rnaseq_short/star_wnode/main.nf</i> file).
+
+###### EGAPx v0.2
+EGAPx v0.2 expects the headers to simple, such as single words (e.g., read ID or name) with no extra spaces or strange symbols.
 
 ##### reads_ids - EGAPx v0.1 & EGAPx v0.2
 There is a limit to the number of SRA IDs that can be input to EGAPx, since the pipeline makes a query to the SRA. The HTTP header becomes too large if the list of SRA IDs is very long. 
