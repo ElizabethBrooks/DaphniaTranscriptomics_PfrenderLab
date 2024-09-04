@@ -51,9 +51,7 @@ cd $outputsPath
 echo "Beginning analysis of $speciesName..."
 
 # run EGAPx to copy config files
-# TO-DO: With EGAPx v0.2 this step is unnecessary after the first run after installing? 
-# So, does it not need to be run per data set as with EGAPx v0.1?
-#python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
+python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
 # run EGAPx
 python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath

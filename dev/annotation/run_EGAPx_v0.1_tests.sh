@@ -11,14 +11,18 @@
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_NCBI_test1.txt
 ## job 794912 -> ERROR ~ index is out of range 0..-1 (index = 0)
 ## job 795134 -> ABORTED
+## job
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test1.txt
 ## job 794913 -> ERROR ~ index is out of range 0..-1 (index = 0)
 ## job 795135 -> ABORTED
+## job
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_NCBI_test2.txt
 ## job 794915 -> ABORTED
+## job
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test2.txt
 ## job 794916 -> ERROR ~ index is out of range 0..-1 (index = 0)
 ## job 795136 -> ABORTED
+## job
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
@@ -61,8 +65,7 @@ cd $outputsPath
 echo "Beginning analysis of $speciesName..."
 
 # run EGAPx to copy config files
-# TO-DO: With EGAPx v0.2 this step is unnecessary after the first run after installing? not per data set?
-#python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
+python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
 # run EGAPx
 python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
