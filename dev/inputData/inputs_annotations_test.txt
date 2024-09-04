@@ -2,4 +2,6 @@ software_SRA: /afs/crc.nd.edu/user/e/ebrooks5/sratoolkit.3.1.1-ubuntu64/bin
 outputs_SRA: /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data
 software_EGAPx_v0.2: /afs/crc.nd.edu/user/e/ebrooks5/egapx_v0.2/egapx
 outputs_EGAPx_v0.2_tests: /afs/crc.nd.edu/group/pfrenderlab/curie/ebrooks/multi_genome_project/EGAPx_v0.2_tests
+software_EGAPx_v0.1: /afs/crc.nd.edu/user/e/ebrooks5/egapx
+outputs_EGAPx_v0.1_tests: /afs/crc.nd.edu/group/pfrenderlab/curie/ebrooks/multi_genome_project/EGAPx_v0.1_tests
 outputs_formatted: /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data/test/formatted
