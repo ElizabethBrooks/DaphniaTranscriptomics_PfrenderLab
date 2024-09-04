@@ -7,6 +7,7 @@
 # script to download formatted SRA reads for EGAPx
 # usage: qsub format_trimmed_reads_EGAPx.sh inputSpecies inputsPath
 # usage ex: qsub format_trimmed_reads_EGAPx.sh D_pulicaria /afs/crc.nd.edu/group/pfrenderlab/mayr/Daphnia_RNAseq/D_pulicaria/D_pulicaria_Lk16_Transcriptome/trimmed_for_reannotation
+## job 794691
 
 # retrieve input species
 inputSpecies=$1
