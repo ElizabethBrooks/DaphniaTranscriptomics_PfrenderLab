@@ -41,6 +41,7 @@ for i in $inputsPath"/"*; do
 	echo "Processing $i ..."
 	# retrieve read name
 	newName=$(basename $i | sed "s/\.fq/\.fmt.fa/g")
+	# TO-DO: we may need to re-name files so that read 1 ends with .1 and read 2 ends with .2
 	# format read headers and keep only header and sequence data
 	cat $i | sed 's/ /\./' | cut -d" " -f1 | awk 'NR%4==1 || NR%4==2' | sed "s/^@/>/g" > $outputsPath"/"$newName
 done

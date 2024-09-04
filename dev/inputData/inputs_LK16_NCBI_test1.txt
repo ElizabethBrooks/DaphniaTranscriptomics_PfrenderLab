@@ -1,0 +1,2 @@
+species: D_pulicaria_LK16_NCBI_test1
+inputs_EGAPx: inputs_LK16_NCBI_test1.yaml

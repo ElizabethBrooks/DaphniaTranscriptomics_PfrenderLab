@@ -7,10 +7,14 @@
 
 # script to run the EGAPx pipeline
 # usage: qsub run_EGAPx_v0.2_tests.sh inputFile
-# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test.txt
+# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test1.txt
 ## job 793426
-# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test.txt
-## job 793458, 793855
+# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test1.txt
+## job 793458, 793856
+# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test2.txt
+## job 
+# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test2.txt
+## job 
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
@@ -20,10 +24,10 @@
 inputFile=$1
 
 # retrieve species name
-speciesName=$(grep "species:" ../../"inputData/"$inputFile | tr -d " " | sed "s/species://g")
+speciesName=$(grep "species:" ../"inputData/"$inputFile | tr -d " " | sed "s/species://g")
 
 # retrieve inputs path
-inputsPath=$(grep "inputs_EGAPx:" ../../"inputData/"$inputFile | tr -d " " | sed "s/inputs_EGAPx://g")
+inputsPath=$(grep "inputs_EGAPx:" ../"inputData/"$inputFile | tr -d " " | sed "s/inputs_EGAPx://g")
 
 # retrieve repository directory
 repoDir=$(dirname $PWD | sed "s/\/dev//g")
@@ -32,10 +36,10 @@ repoDir=$(dirname $PWD | sed "s/\/dev//g")
 inputsPath=$repoDir"/inputData/"$inputsPath
 
 # retrieve software path
-softwarePath=$(grep "software_EGAPx_v0.2:" ../../"inputData/inputs_annotations_test.txt" | tr -d " " | sed "s/software_EGAPx_v0.2://g")
+softwarePath=$(grep "software_EGAPx_v0.2:" ../"inputData/inputs_annotations_test.txt" | tr -d " " | sed "s/software_EGAPx_v0.2://g")
 
 # retrieve outputs path
-outputsPath=$(grep "outputs_EGAPx_v0.2_tests:" ../../"inputData/inputs_annotations_test.txt" | tr -d " " | sed "s/outputs_EGAPx_v0.2_tests://g")
+outputsPath=$(grep "outputs_EGAPx_v0.2_tests:" ../"inputData/inputs_annotations_test.txt" | tr -d " " | sed "s/outputs_EGAPx_v0.2_tests://g")
 
 # setup outputs directory
 outputsPath=$outputsPath"/"$speciesName

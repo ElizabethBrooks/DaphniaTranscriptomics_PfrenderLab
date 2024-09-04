@@ -1,0 +1,5 @@
+genome: /afs/crc.nd.edu/group/pfrenderlab/mendel/DaphniaGenomes/daphnia_pulicaria_LK16/GCA_017493165.1/GCA_017493165.1_DPuli_LK16_genomic.fna
+taxid: 35523
+reads:
+  - /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data/test/DRR024779.1
+  - /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data/test/DRR024779.2
