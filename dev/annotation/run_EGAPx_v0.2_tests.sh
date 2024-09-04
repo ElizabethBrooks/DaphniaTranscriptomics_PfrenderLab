@@ -10,14 +10,14 @@
 # usage: qsub run_EGAPx_v0.2_tests.sh inputFile
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test1.txt
 ## job 793426 -> SUCCEEDED
-## job 795141
+## job 795141 -> ABORTED
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test1.txt
 ## job 793458, 793856 -> SUCCEEDED
-## job 795142
+## job 795142 -> ABORTED
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test2.txt
-## job 794884
+## job 794884 -> ABORTED
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test2.txt
-## job 794885
+## job 794885 -> ABORTED
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores

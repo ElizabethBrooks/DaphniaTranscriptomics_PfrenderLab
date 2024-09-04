@@ -10,15 +10,15 @@
 # usage: qsub run_EGAPx_v0.1_tests.sh inputFile
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_NCBI_test1.txt
 ## job 794912 -> ERROR ~ index is out of range 0..-1 (index = 0)
-## job 795134
+## job 795134 -> ABORTED
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test1.txt
 ## job 794913 -> ERROR ~ index is out of range 0..-1 (index = 0)
-## job 795135
+## job 795135 -> ABORTED
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_NCBI_test2.txt
-## job 794915
+## job 794915 -> ABORTED
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test2.txt
 ## job 794916 -> ERROR ~ index is out of range 0..-1 (index = 0)
-## job 795136
+## job 795136 -> ABORTED
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
@@ -61,19 +61,20 @@ cd $outputsPath
 echo "Beginning analysis of $speciesName..."
 
 # run EGAPx to copy config files
-python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
+# TO-DO: With EGAPx v0.2 this step is unnecessary after the first run after installing? not per data set?
+#python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
 # run EGAPx
 python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
 # run nextflow
-nextflow -C $outputsPath"/egapx_config/singularity.config",$softwarePath"/ui/assets/config/default.config",$softwarePath"/ui/assets/config/docker_image.config",$softwarePath"/ui/assets/config/process_resources.config" \
-	-log $outputsPath"/nextflow.log" run $softwarePath"/ui/"../nf/ui.nf \
-	--output $outputsPath \
-	-with-report $outputsPath"/run.report.html" \
-	-with-timeline $outputsPath"/run.timeline.html" \
-	-with-trace $outputsPath"/run.trace.txt" \
-	-params-file $outputsPath"/run_params.yaml"
+#nextflow -C $outputsPath"/egapx_config/singularity.config",$softwarePath"/ui/assets/config/default.config",$softwarePath"/ui/assets/config/docker_image.config",$softwarePath"/ui/assets/config/process_resources.config" \
+	#-log $outputsPath"/nextflow.log" run $softwarePath"/ui/"../nf/ui.nf \
+	#--output $outputsPath \
+	#-with-report $outputsPath"/run.report.html" \
+	#-with-timeline $outputsPath"/run.timeline.html" \
+	#-with-trace $outputsPath"/run.trace.txt" \
+	#-params-file $outputsPath"/run_params.yaml"
 
 # clean up
 #rm -r $outputsPath"/temp_datapath"
