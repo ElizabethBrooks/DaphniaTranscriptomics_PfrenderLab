@@ -42,7 +42,9 @@ EGAPx v0.1 expects that input reads are a list of FASTA read files, which are na
 ###### EGAPx v0.2
 EGAPx v0.2 expects the headers to simple, such as single words (e.g., read ID or name) with no extra spaces or strange symbols.
 
-##### reads_ids - EGAPx v0.1 & EGAPx v0.2
+##### reads_ids
+
+###### EGAPx v0.1 & EGAPx v0.2
 There is a limit to the number of SRA IDs that can be input to EGAPx, since the pipeline makes a query to the SRA. The HTTP header becomes too large if the list of SRA IDs is very long. 
 
 ###### NCBI Data Sets
