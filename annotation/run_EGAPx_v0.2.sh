@@ -51,21 +51,12 @@ cd $outputsPath
 echo "Beginning analysis of $speciesName..."
 
 # run EGAPx to copy config files
-python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
+# TO-DO: With EGAPx v0.2 this step is unnecessary after the first run after installing? 
+# So, does it not need to be run per data set as with EGAPx v0.1?
+#python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
 # run EGAPx
 python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
-
-# run nextflow
-# it may be possible to use the -resume flag to re-start an interrupted run
-nextflow -C $outputsPath"/egapx_config/singularity.config",$softwarePath"/ui/assets/config/default.config",$softwarePath"/ui/assets/config/docker_image.config",$softwarePath"/ui/assets/config/process_resources.config" \
-	-log $outputsPath"/nextflow.log" run $softwarePath"/ui/"../nf/ui.nf \
-	--output $outputsPath \
-	-with-report $outputsPath"/run.report.html" \
-	-with-timeline $outputsPath"/run.timeline.html" \
-	-with-trace $outputsPath"/run.trace.txt" \
-	-params-file $outputsPath"/run_params.yaml" \
-	#-resume
 
 # clean up
 #rm -r $outputsPath"/temp_datapath"

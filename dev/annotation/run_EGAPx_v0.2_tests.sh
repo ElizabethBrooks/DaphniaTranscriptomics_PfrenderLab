@@ -9,9 +9,11 @@
 # script to run the EGAPx pipeline
 # usage: qsub run_EGAPx_v0.2_tests.sh inputFile
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test1.txt
-## job 793426
+## job 793426 -> SUCCEEDED
+## job 795141
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test1.txt
-## job 793458, 793856
+## job 793458, 793856 -> SUCCEEDED
+## job 795142
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test2.txt
 ## job 794884
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test2.txt
@@ -58,19 +60,11 @@ cd $outputsPath
 echo "Beginning analysis of $speciesName..."
 
 # run EGAPx to copy config files
-python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
+# TO-DO: With EGAPx v0.2 this step is unnecessary after the first run after installing? not per data set?
+#python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
 # run EGAPx
 python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
-
-# run nextflow
-nextflow -C $outputsPath"/egapx_config/singularity.config",$softwarePath"/ui/assets/config/default.config",$softwarePath"/ui/assets/config/docker_image.config",$softwarePath"/ui/assets/config/process_resources.config" \
-	-log $outputsPath"/nextflow.log" run $softwarePath"/ui/"../nf/ui.nf \
-	--output $outputsPath \
-	-with-report $outputsPath"/run.report.html" \
-	-with-timeline $outputsPath"/run.timeline.html" \
-	-with-trace $outputsPath"/run.trace.txt" \
-	-params-file $outputsPath"/run_params.yaml" 
 
 # clean up
 #rm -r $outputsPath"/temp_datapath"
