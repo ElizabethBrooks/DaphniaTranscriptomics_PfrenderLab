@@ -8,6 +8,8 @@
 # usage: qsub format_trimmed_reads_EGAPx.sh inputSpecies inputsPath
 # usage ex: qsub format_trimmed_reads_EGAPx.sh D_pulicaria /afs/crc.nd.edu/group/pfrenderlab/mayr/Daphnia_RNAseq/D_pulicaria/D_pulicaria_Lk16_Transcriptome/trimmed_for_reannotation
 ## job 794691
+# usage ex: qsub format_trimmed_reads_EGAPx.sh D_obtusa /afs/crc.nd.edu/group/pfrenderlab/mayr/Daphnia_RNAseq/D_obtusa/D_obtusa_multi/trimmed_for_reannotation
+## job
 
 # retrieve input species
 inputSpecies=$1
@@ -34,7 +36,7 @@ echo "Beginning analysis..."
 gunzip -v $inputsPath"/"*
 
 # loop over each file and re-format the reads
-for i in $inputsPath"/"*; do
+for i in $inputsPath"/"*"/.fq"; do
 	# status message
 	echo "Processing $i ..."
 	# retrieve read name
