@@ -15,13 +15,12 @@ Make sure to change the paths in the <i>inputs_annotations.txt</i> file to where
 #### Notes
 There are some things to keep in mind when running EGAPx.
 
-##### Running
-- Either the number of cores requested for a job must be at least 31, or you will need to edit the default huge_Job value in the <i>egapx/ui/assets/config/process_resources.config</i> file
-- The pipeline can take a lot of memory and time, if there is a large number of reads being retrieved from the SRA
-- There is a limit to the number of SRA IDs that can be input to EGAPx
-
-##### HPC scripts
+##### EGAPx Config
 The <i>egapx/ui/assets/config/process_resources.config</i> file specifies up to 31 cores (huge_Job).
+
+The ND CRC [system specifications](https://docs.crc.nd.edu/new_user/quick_start.html) indicates that our afs system has 263Gb RAM, 64 cores. Make sure to leave 1 core free for general processes, so request up to 63 cores per job on our afs system.
+
+The <i>EGAPx_v0.2_process_resources.config</i> file in the <i>inputData</i> directory may be used to run EGAPx workflow jobs on the ND CRC remote servers.
 
 ##### inputData
 
@@ -32,9 +31,4 @@ The read files need to be formatted very specifically, see the format_SRA_reads_
 There is a limit to the number of SRA IDs that can be input to EGAPx, since the pipeline makes a query to the SRA. The HTTP header becomes too large if the list of SRA IDs is very long. 
 
 ###### NCBI Data Sets
-These IDs were retrieved from the annotation report pages of each species. For example, [KAP4 NCBI annotation report](https://www.ncbi.nlm.nih.gov/refseq/annotation_euk/Daphnia_pulex/100/). These are the "RNA-Seq alignments" "Project" IDs and the "SRA Long Read Alignment Statistics" "Run" ID. The unique Project IDs are being used since EGAPx fails if the HTTP header becomes to large from a long list of samples.
-
-##### EGAPx Config
-ND CRC [system specifications](https://docs.crc.nd.edu/new_user/quick_start.html).
-
-The following template may be used to run EGAPx workflow jobs on the ND CRC remote servers. The config file template can also be found in the <i>EGAPx_v0.2_process_resources.config</i> file in the <i>inputData</i> directory.
+These IDs can be retrieved from the annotation report pages of each species. For example, [KAP4 NCBI annotation report](https://www.ncbi.nlm.nih.gov/refseq/annotation_euk/Daphnia_pulex/100/). These are the "RNA-Seq alignments" "Project" IDs and the "SRA Long Read Alignment Statistics" "Run" ID. The unique Project IDs are being used since EGAPx fails if the HTTP header becomes to large from a long list of samples.
