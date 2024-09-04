@@ -7,7 +7,7 @@
 
 # script to run the EGAPx pipeline
 # usage: qsub run_EGAPx_v0.2.sh inputFile
-# usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_SRA.txt
+# usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_NCBI.txt
 # usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_trimmed.txt
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)

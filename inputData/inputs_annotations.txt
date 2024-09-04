@@ -1,2 +1,3 @@
 software_EGAPx_v0.2: /afs/crc.nd.edu/user/e/ebrooks5/egapx_v0.2/egapx
 outputs_EGAPx_v0.2: /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/EGAPx_v0.2
+outputs_formatted: /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data/formatted

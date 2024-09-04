@@ -7,10 +7,10 @@
 
 # script to run the EGAPx pipeline
 # usage: qsub run_EGAPx_v0.2_tests.sh inputFile
-# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_SRA_test.txt
+# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test.txt
 ## job 793426
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test.txt
-## job 793458
+## job 793458, 
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
@@ -32,10 +32,10 @@ repoDir=$(dirname $PWD)
 inputsPath=$repoDir"/inputData/"$inputsPath
 
 # retrieve software path
-softwarePath=$(grep "software_EGAPx_v0.2:" ../../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/software_EGAPx_v0.2://g")
+softwarePath=$(grep "software_EGAPx_v0.2:" ../../"inputData/inputs_annotations_test.txt" | tr -d " " | sed "s/software_EGAPx_v0.2://g")
 
 # retrieve outputs path
-outputsPath=$(grep "outputs_EGAPx_v0.2_tests:" ../../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_EGAPx_v0.2_tests://g")
+outputsPath=$(grep "outputs_EGAPx_v0.2_tests:" ../../"inputData/inputs_annotations_test.txt" | tr -d " " | sed "s/outputs_EGAPx_v0.2_tests://g")
 
 # setup outputs directory
 outputsPath=$outputsPath"/"$speciesName

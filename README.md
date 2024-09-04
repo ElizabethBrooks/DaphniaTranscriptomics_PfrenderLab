@@ -22,10 +22,12 @@ The ND CRC [system specifications](https://docs.crc.nd.edu/new_user/quick_start.
 
 The <i>EGAPx_v0.2_process_resources.config</i> file in the <i>inputData</i> directory may be used to run EGAPx workflow jobs on the ND CRC remote servers.
 
+It is also possible to set the config using the -c or --config-dir CONFIG_DIR flag (see the GitHub README for EGAPx or run <i>ui/egapx.py  -h</i>).
+
 #### inputData
 
 ##### reads
-The read files need to be formatted very specifically, see the format_SRA_reads_EGAPx.sh and download_SRA_reads_EGAPx.sh scripts in the Formatting directory. This is because EGAPx expects that input "reads" are a list of FASTA read files, expects pairs in form SRAxxx.1, SRAxxx.2 (see the egapx/nf/./subworkflows/ncbi/./rnaseq_short/star_wnode/main.nf file).
+The read files need to be formatted very specifically, see the <i>download_SRA_reads_EGAPx.sh</i> script in the <b>dev/formatting</b> directory. This is because EGAPx expects that input "reads" are a list of FASTA read files, expects pairs in form SRAxxx.1, SRAxxx.2 (see the <i>egapx/nf/./subworkflows/ncbi/./rnaseq_short/star_wnode/main.nf</i> file).
 
 ##### reads_ids
 There is a limit to the number of SRA IDs that can be input to EGAPx, since the pipeline makes a query to the SRA. The HTTP header becomes too large if the list of SRA IDs is very long. 

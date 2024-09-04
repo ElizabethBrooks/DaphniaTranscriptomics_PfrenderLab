@@ -31,19 +31,19 @@ softwarePath=$(grep "software_SRA:" ../../"inputData/inputs_annotations.txt" | t
 outputsPath=$(grep "outputs_SRA:" ../../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_SRA://g")
 
 # name species outputs directory
-outDir=$outputsPath"/dump_"$inputSpecies
+outputsDir=$outputsPath"/dump_"$inputSpecies
 
 # make species directory for the formatted data
-mkdir $outDir
+mkdir $outputsDir
 
 # name SRA ID outputs directory
-outDir=$outDir"/dump_"$inputID
+outputsDir=$outputsDir"/dump_"$inputID
 
 # make SRA ID directory for the formatted data
-mkdir $outDir
+mkdir $outputsDir
 
 # move to outputs directory, since SRA tools caches data in the working directory
-cd $outDir
+cd $outputsDir
 
 # download formated reads
 prefetch $inputID
@@ -52,13 +52,13 @@ prefetch $inputID
 echo "Beginning analysis..."
 
 # loop over each SRA ID retrieved using prefetch
-for i in $outDir"/"*"/"; do
+for i in $outputsDir"/"*"/"; do
 	# retrieve SRA ID
 	sraID=$(basename $i)
 	# status message
 	echo "Processing $sraID ..."
 	# retrieve SRA data
-	$softwarePath"/"fasterq-dump --skip-technical --threads 8 --split-files --seq-defline ">\$ac.\$si.\$ri" --fasta -O $outDir"/"  ./$sraID
+	$softwarePath"/"fasterq-dump --skip-technical --threads 8 --split-files --seq-defline ">\$ac.\$si.\$ri" --fasta -O $outputsDir"/"  ./$sraID
 done
 
 # status message
