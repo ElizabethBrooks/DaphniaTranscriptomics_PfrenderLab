@@ -13,9 +13,9 @@
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test1.txt
 ## job 793458, 793856
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test2.txt
-## job 794585
+## job 794806
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test2.txt
-## job 794586
+## job 794808
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
@@ -31,7 +31,7 @@ speciesName=$(grep "species:" ../"inputData/"$inputFile | tr -d " " | sed "s/spe
 inputsPath=$(grep "inputs_EGAPx:" ../"inputData/"$inputFile | tr -d " " | sed "s/inputs_EGAPx://g")
 
 # retrieve repository directory
-repoDir=$(dirname $PWD | sed "s/\/dev//g")
+repoDir=$(dirname $PWD)
 
 # setup inputs path
 inputsPath=$repoDir"/inputData/"$inputsPath
