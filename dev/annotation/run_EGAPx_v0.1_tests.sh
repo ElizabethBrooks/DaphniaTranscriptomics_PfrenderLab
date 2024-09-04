@@ -9,13 +9,16 @@
 # script to run the EGAPx pipeline
 # usage: qsub run_EGAPx_v0.1_tests.sh inputFile
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_NCBI_test1.txt
-## job 794912
+## job 794912 -> ERROR ~ index is out of range 0..-1 (index = 0)
+## job
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test1.txt
-## job 794913
+## job 794913 -> ERROR ~ index is out of range 0..-1 (index = 0)
+## job
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_NCBI_test2.txt
 ## job 794915
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test2.txt
-## job 794916
+## job 794916 -> ERROR ~ index is out of range 0..-1 (index = 0)
+## job
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
@@ -70,8 +73,7 @@ nextflow -C $outputsPath"/egapx_config/singularity.config",$softwarePath"/ui/ass
 	-with-report $outputsPath"/run.report.html" \
 	-with-timeline $outputsPath"/run.timeline.html" \
 	-with-trace $outputsPath"/run.trace.txt" \
-	-params-file $outputsPath"/run_params.yaml" \
-	#-resume
+	-params-file $outputsPath"/run_params.yaml"
 
 # clean up
 #rm -r $outputsPath"/temp_datapath"
