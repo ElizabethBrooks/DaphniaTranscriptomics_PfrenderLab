@@ -38,31 +38,3 @@ These IDs were retrieved from the annotation report pages of each species. For e
 ND CRC [system specifications](https://docs.crc.nd.edu/new_user/quick_start.html).
 
 The following template may be used to run EGAPx workflow jobs on the ND CRC remote servers. The config file template can also be found in the <i>EGAPx_v0.2_process_resources.config</i> file in the <i>inputData</i> directory.
-
-###### Template
-// Part of nextflow config describing resource requirements for EGAPx processes
-
-// We rely on labels to define 3 tiers of processes - default, big, and huge.
-
-// Make sure that executor you use supports job memory and CPU requirements
-
-process {
-
-    memory = 200.GB
-    cpus = 63
-    time = 336.h
-
-    withLabel: 'big_job' {
-        memory = 200.GB
-        cpus = 63
-    }
-
-    withLabel: 'huge_job' {
-        memory = 200.GB
-        cpus = 63
-    }
-
-    withLabel: 'long_job' {
-        time = 336.h
-    }
-}

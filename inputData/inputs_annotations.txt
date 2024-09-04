@@ -1,4 +1,2 @@
-software_SRA: /afs/crc.nd.edu/user/e/ebrooks5/sratoolkit.3.1.1-ubuntu64/bin
 software_EGAPx_v0.2: /afs/crc.nd.edu/user/e/ebrooks5/egapx_v0.2/egapx
-outputs_SRA: /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/data
 outputs_EGAPx_v0.2: /afs/crc.nd.edu/group/pfrenderlab/franklin/daphnia_EGAPx_annotations/EGAPx_v0.2

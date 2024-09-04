@@ -2,13 +2,15 @@
 #$ -M ebrooks5@nd.edu
 #$ -m abe
 #$ -r n
-#$ -N run_EGAPx_v0.2_jobOutput
+#$ -N run_EGAPx_v0.2_tests_jobOutput
 #$ -pe smp 63
 
 # script to run the EGAPx pipeline
-# usage: qsub run_EGAPx_v0.2.sh inputFile
-# usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_SRA.txt
-# usage ex: qsub run_EGAPx_v0.2.sh inputs_LK16_trimmed.txt
+# usage: qsub run_EGAPx_v0.2_tests.sh inputFile
+# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_SRA_test.txt
+## job 793426
+# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test.txt
+## job 793458
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
@@ -18,10 +20,10 @@
 inputFile=$1
 
 # retrieve species name
-speciesName=$(grep "species:" ../"inputData/"$inputFile | tr -d " " | sed "s/species://g")
+speciesName=$(grep "species:" ../../"inputData/"$inputFile | tr -d " " | sed "s/species://g")
 
 # retrieve inputs path
-inputsPath=$(grep "inputs_EGAPx:" ../"inputData/"$inputFile | tr -d " " | sed "s/inputs_EGAPx://g")
+inputsPath=$(grep "inputs_EGAPx:" ../../"inputData/"$inputFile | tr -d " " | sed "s/inputs_EGAPx://g")
 
 # retrieve repository directory
 repoDir=$(dirname $PWD)
@@ -30,10 +32,10 @@ repoDir=$(dirname $PWD)
 inputsPath=$repoDir"/inputData/"$inputsPath
 
 # retrieve software path
-softwarePath=$(grep "software_EGAPx_v0.2:" ../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/software_EGAPx_v0.2://g")
+softwarePath=$(grep "software_EGAPx_v0.2:" ../../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/software_EGAPx_v0.2://g")
 
 # retrieve outputs path
-outputsPath=$(grep "outputs_EGAPx_v0.2:" ../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_EGAPx_v0.2://g")
+outputsPath=$(grep "outputs_EGAPx_v0.2_tests:" ../../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_EGAPx_v0.2_tests://g")
 
 # setup outputs directory
 outputsPath=$outputsPath"/"$speciesName
@@ -57,7 +59,6 @@ python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/
 python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
 # run nextflow
-# it may be possible to use the -resume flag to re-start an interrupted run
 nextflow -C $outputsPath"/egapx_config/singularity.config",$softwarePath"/ui/assets/config/default.config",$softwarePath"/ui/assets/config/docker_image.config",$softwarePath"/ui/assets/config/process_resources.config" \
 	-log $outputsPath"/nextflow.log" run $softwarePath"/ui/"../nf/ui.nf \
 	--output $outputsPath \
