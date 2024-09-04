@@ -11,14 +11,11 @@
 # retrieve input species
 inputSpecies=$1
 
-# retrieve input SRA ID
+# retrieve inputs path
 inputsPath=$2
 
 # retrieve outputs path
-outputsPath=$(grep "outputs_formatted:" ../../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_formatted://g")
-
-# make species directory for the formatted data
-mkdir $outputsPath
+outputsPath=$(grep "outputs_formatted:" ../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_formatted://g")
 
 # name species directory
 outputsPath=$outputsPath"/"$inputSpecies
@@ -42,6 +39,7 @@ for i in $inputsPath"/"*; do
 	# retrieve read name
 	newName=$(basename $i | sed "s/\.fq/\.fmt.fa/g")
 	# TO-DO: we may need to re-name files so that read 1 ends with .1 and read 2 ends with .2
+	# this will be the case if the EGAPx test2 succeeds and test1 fails
 	# format read headers and keep only header and sequence data
 	cat $i | sed 's/ /\./' | cut -d" " -f1 | awk 'NR%4==1 || NR%4==2' | sed "s/^@/>/g" > $outputsPath"/"$newName
 done
