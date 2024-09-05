@@ -1,0 +1,5 @@
+genome: /afs/crc.nd.edu/group/pfrenderlab/mendel/DaphniaGenomes/1_all_chromosome_assemblies_and_annotation_June2024/D.pulicaria_LK16_1.3_annotation/D.pulicaria_LARRY_HIC_final.fasta
+taxid: 35523
+reads:
+  - /afs/crc.nd.edu/group/pfrenderlab/mayr/Daphnia_RNAseq/D_pulicaria/D_pulicaria_Lk16_Transcriptome/trimmed_for_reannotation/18CRep1_ATCACG_L001_R1.concat.fq
+  - /afs/crc.nd.edu/group/pfrenderlab/mayr/Daphnia_RNAseq/D_pulicaria/D_pulicaria_Lk16_Transcriptome/trimmed_for_reannotation/18CRep1_ATCACG_L001_R2.concat.fq

@@ -11,17 +11,19 @@
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_NCBI_test1.txt
 ## job 794912 -> ERROR ~ index is out of range 0..-1 (index = 0)
 ## job 795134 -> ABORTED
-## job
+## job 795684 -> ERROR ~ index is out of range 0..-1 (index = 0)
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test1.txt
 ## job 794913 -> ERROR ~ index is out of range 0..-1 (index = 0)
 ## job 795135 -> ABORTED
-## job
+## job 795685 -> ERROR ~ index is out of range 0..-1 (index = 0)
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_NCBI_test2.txt
 ## job 794915 -> ABORTED
-## job
+## job 795686 -> SUCCEEDED
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test2.txt
 ## job 794916 -> ERROR ~ index is out of range 0..-1 (index = 0)
 ## job 795136 -> ABORTED
+## job 795687
+# usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test3.txt
 ## job
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)

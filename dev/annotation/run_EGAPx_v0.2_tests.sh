@@ -11,16 +11,18 @@
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test1.txt
 ## job 793426 -> SUCCEEDED
 ## job 795141 -> ABORTED
-## job 795676
+## job 795680 -> SUCCEEDED
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test1.txt
 ## job 793458, 793856 -> SUCCEEDED
 ## job 795142 -> ABORTED
-## job
+## job 795681 -> SUCCEEDED
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test2.txt
 ## job 794884 -> ABORTED
-## job
+## job 795682 -> SUCCEEDED
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test2.txt
 ## job 794885 -> ABORTED
+## job 795683 -> SUCCEEDED
+# usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test3.txt
 ## job
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
