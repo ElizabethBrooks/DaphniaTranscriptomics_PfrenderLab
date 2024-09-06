@@ -65,6 +65,7 @@
 ## mRNA         20322
 ## transcript   3169
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test4.txt
+## job 798432 -> Exiting because of *FATAL ERROR*: could not create FIFO file wrkarea/STAR.65804014732736FFdFHY/D.pulicaria_LARRY_HIC_final-18CRep1_ATCACG_L001_R1.concat.fq/D.pulicaria_LARRY_HIC_final-18CRep1_ATCACG_L001_R1.concat.fq-_STARtmp/tmp.fifo.read1
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
