@@ -20,6 +20,9 @@ inputsPath=$2
 # retrieve outputs path
 outputsPath=$(grep "outputs_formatted:" ../"inputData/inputs_annotations.txt" | tr -d " " | sed "s/outputs_formatted://g")
 
+# create the outputs data directory
+mkdir $outputsPath
+
 # name species directory
 outputsPath=$outputsPath"/"$inputSpecies
 

@@ -30,14 +30,17 @@ softwarePath=$(grep "software_SRA:" ../"inputData/inputs_annotations_test.txt" |
 # retrieve outputs path
 outputsPath=$(grep "outputs_SRA:" ../"inputData/inputs_annotations_test.txt" | tr -d " " | sed "s/outputs_SRA://g")
 
+# create the outputs data directory
+mkdir $outputsPath
+
 # name species outputs directory
-outputsDir=$outputsPath"/dump_"$inputSpecies
+outputsDir=$outputsPath"/"$inputSpecies
 
 # make species directory for the formatted data
 mkdir $outputsDir
 
 # name SRA ID outputs directory
-outputsDir=$outputsDir"/dump_"$inputID
+outputsDir=$outputsDir"/"$inputID
 
 # make SRA ID directory for the formatted data
 mkdir $outputsDir
