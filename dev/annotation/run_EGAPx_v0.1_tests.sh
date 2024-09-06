@@ -3,7 +3,7 @@
 #$ -m abe
 #$ -r n
 #$ -N run_EGAPx_v0.1_tests_jobOutput
-#$ -q largemem
+#$ -q long
 #$ -pe smp 63
 
 # script to run the EGAPx pipeline
@@ -22,9 +22,9 @@
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test2.txt
 ## job 794916 -> ERROR ~ index is out of range 0..-1 (index = 0)
 ## job 795136 -> ABORTED
-## job 795687
+## job 795687 -> ERROR ~ index is out of range 0..-1 (index = 0)
 # usage ex: qsub run_EGAPx_v0.1_tests.sh inputs_LK16_trimmed_test3.txt
-## job
+## job 796721 -> ERROR ~ index is out of range 0..-1 (index = 0)
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores
@@ -72,18 +72,22 @@ python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/
 # run EGAPx
 python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
-# run nextflow
-#nextflow -C $outputsPath"/egapx_config/singularity.config",$softwarePath"/ui/assets/config/default.config",$softwarePath"/ui/assets/config/docker_image.config",$softwarePath"/ui/assets/config/process_resources.config" \
-	#-log $outputsPath"/nextflow.log" run $softwarePath"/ui/"../nf/ui.nf \
-	#--output $outputsPath \
-	#-with-report $outputsPath"/run.report.html" \
-	#-with-timeline $outputsPath"/run.timeline.html" \
-	#-with-trace $outputsPath"/run.trace.txt" \
-	#-params-file $outputsPath"/run_params.yaml"
-
-# clean up
-#rm -r $outputsPath"/temp_datapath"
-#rm -r $outputsPath"/work"
+# clean up, if accept.gff output file exsists
+if [ ! -f $outputsPath"/accept.gff" ]; then
+	# run nextflow to resume annotation
+	nextflow -C $outputsPath"/egapx_config/singularity.config",$softwarePath"/ui/assets/config/default.config",$softwarePath"/ui/assets/config/docker_image.config",$softwarePath"/ui/assets/config/process_resources.config" \
+		-log $outputsPath"/nextflow.log" run $softwarePath"/ui/"../nf/ui.nf \
+		--output $outputsPath \
+		-with-report $outputsPath"/run.report.html" \
+		-with-timeline $outputsPath"/run.timeline.html" \
+		-with-trace $outputsPath"/run.trace.txt" \
+		-params-file $outputsPath"/run_params.yaml"
+		- resume
+else
+    rm -r $outputsPath"/temp_datapath"
+	rm -r $outputsPath"/work"
+	rm -r $outputsPath"/annot_builder_output"
+fi
 
 # status message
 echo "Analysis of $speciesName complete!"

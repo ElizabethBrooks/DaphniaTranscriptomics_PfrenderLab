@@ -56,9 +56,15 @@ python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/
 # run EGAPx
 python3 $softwarePath"/ui/egapx.py" $inputsPath -e singularity -w $outputsPath"/temp_datapath" -o $outputsPath
 
-# clean up
-#rm -r $outputsPath"/temp_datapath"
-#rm -r $outputsPath"/work"
+# clean up, if accept.gff output file exsists
+if [ ! -f $outputsPath"/accept.gff" ]; then
+	# run to resume annotation
+	sh $outputsPath"/resume.sh"
+else
+    rm -r $outputsPath"/temp_datapath"
+	rm -r $outputsPath"/work"
+	rm -r $outputsPath"/annot_builder_output"
+fi
 
 # status message
 echo "Analysis of $speciesName complete!"
