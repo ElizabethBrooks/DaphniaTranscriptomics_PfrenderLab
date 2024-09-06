@@ -12,18 +12,59 @@
 ## job 793426 -> SUCCEEDED
 ## job 795141 -> ABORTED
 ## job 795680 -> SUCCEEDED
+## Duration    : 12h 8m 27s
+## CPU hours   : 762.5
+## Succeeded   : 234
+## CDS          143899
+## exon         153207
+## gene         22122
+## mRNA         20831
+## transcript   2548
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test1.txt
 ## job 793458, 793856 -> SUCCEEDED
 ## job 795142 -> ABORTED
 ## job 795681 -> SUCCEEDED
+## Duration    : 10h 48m 12s
+## CPU hours   : 678.7
+## Succeeded   : 214
+## CDS          150685
+## exon         166752
+## gene         19764
+## mRNA         20322
+## transcript   3169
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_NCBI_test2.txt
 ## job 794884 -> ABORTED
 ## job 795682 -> SUCCEEDED
+## Duration    : 12h 16m 21s
+## CPU hours   : 770.8
+## Succeeded   : 234
+## CDS          143899
+## exon         153207
+## gene         22122
+## mRNA         20831
+## transcript   2548
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test2.txt
 ## job 794885 -> ABORTED
 ## job 795683 -> SUCCEEDED
+## Duration    : 10h 50m 38s
+## CPU hours   : 681.2
+## Succeeded   : 214
+## CDS          150685
+## exon         166752
+## gene         19764
+## mRNA         20322
+## transcript   3169
 # usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test3.txt
-## job 796720
+## job 796720 -> SUCCEEDED
+## Duration    : 10h 41m 49s
+## CPU hours   : 671.6
+## Succeeded   : 218
+## CDS          150685
+## exon         166752
+## gene         19764
+## mRNA         20322
+## transcript   3169
+# usage ex: qsub run_EGAPx_v0.2_tests.sh inputs_LK16_trimmed_test4.txt
 
 # NOTE: the default /egapx/ui/assets/config/process_resources.config file specifies up to 31 cores (huge_Job)
 # our afs system has 263Gb RAM, 64 cores

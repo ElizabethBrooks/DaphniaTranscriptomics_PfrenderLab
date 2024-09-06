@@ -32,10 +32,11 @@ It is also possible to set the config using the -c or --config-dir CONFIG_DIR fl
 #### inputData
 
 ##### reads
-The read files need to be formatted very specifically, see the <i>format_trimmed_reads_EGAPx.sh</i> script in the <b>formatting</b> directory.
 
 ###### EGAPx v0.1
-EGAPx v0.1 expects the headers to simple, such as single words (e.g., read ID or name) with no extra spaces or strange symbols.
+The read fasta files need to be formatted very specifically, see the <i>format_trimmed_reads_EGAPx.sh</i> script in the <b>formatting</b> directory.
+
+EGAPx v0.1 expects the headers to simple, such as single words (e.g., read ID or name) with no extra spaces or strange symbols. Additionally, the fasta file needs to contain just header and sequence information (no quality scores, etc.).
 
 EGAPx v0.1 expects that input reads are a list of FASTA read files, which are named in the form SRAxxx.1, SRAxxx.2 (see the <i>egapx/nf/./subworkflows/ncbi/./rnaseq_short/star_wnode/main.nf</i> file).
 
