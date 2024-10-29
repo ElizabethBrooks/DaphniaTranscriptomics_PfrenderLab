@@ -43,8 +43,8 @@ EGAPx v0.1 expects that input reads are a list of FASTA read files, which are na
 ###### EGAPx v0.2
 EGAPx v0.2 expects the headers to simple, such as single words (e.g., read ID or name) with no extra spaces or strange symbols.
 
-<b>TO-DO:</b> Altert EGAPx creators of the following error.
-EGAPx v0.2 should be able to accept fasta files compressed into gz format. However, the following error is returned on our ND CRC remote server system (see https://www.biostars.org/p/9469010/):
+<b>TO-DO:</b> Altert EGAPx creators of the following error.<br>
+EGAPx v0.2 should be able to accept fasta files compressed into gz format. However, the following error is returned on our ND CRC remote server system (see https://www.biostars.org/p/9469010/):<br>
 Exiting because of \*FATAL ERROR\*: could not create FIFO file wrkarea/STAR.65804014732736FFdFHY/D.pulicaria_LARRY_HIC_final-18CRep1_ATCACG_L001_R1.concat.fq/D.pulicaria_LARRY_HIC_final-18CRep1_ATCACG_L001_R1.concat.fq-\_STARtmp/tmp.fifo.read1
 
 ##### reads_ids

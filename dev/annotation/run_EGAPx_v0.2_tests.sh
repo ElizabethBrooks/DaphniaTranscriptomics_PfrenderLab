@@ -119,7 +119,7 @@ if [ ! -f $outputsPath"/accept.gff" ]; then
 	sh $outputsPath"/resume.sh"
 else
     rm -r $outputsPath"/temp_datapath"
-	rm -r $outputsPath"/work"
+	#rm -r $outputsPath"/work"
 	rm -r $outputsPath"/annot_builder_output"
 fi
 
