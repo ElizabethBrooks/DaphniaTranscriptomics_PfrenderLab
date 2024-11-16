@@ -3,6 +3,7 @@
 #$ -m abe
 #$ -r n
 #$ -N fastqc_daphniaOmics_jobOutput
+#$ -pe smp 8
 
 # script to perform fastqc quality control of paired end reads
 # usage: qsub fastqc_daphniaOmics.sh inputsFile analysisType
@@ -40,7 +41,7 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-#Make a new directory for analysis
+# make a new directory for analysis
 qcOut=$outputsPath"/qc_"$analysisType
 mkdir $qcOut
 #Check if the folder already exists
@@ -49,34 +50,20 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
-#Move to the new directory
+# move to the new directory
 cd $qcOut
 
-#Name output file of inputs
-inputOutFile=$qcOut"/pipeline_summary.txt"
+# name output version file
 versionFile=$qcOut"/version_summary.txt"
-#Report software version
+
+# report software version
 fastqc -version > $versionFile
 
-#Loop through all forward and reverse reads and run trimmomatic on each pair
-for f1 in "$readPath"/*fq.gz; do
-	#Trim path from file name
-	noPath=$(basename $f1 | sed 's/\.fq\.gz//')
-	#Trim extension from current file name
-	curSample=$(echo $f1 | sed 's/\.fq\.gz//')
-	#Set paired file name
-	f2=$curSample"_2.fq.gz"
-	#Print status message
-	echo "Processing $noPath"
-	#Perform QC on both paired end reads for the current sample
-	fastqc $f1 -o $qcOut --extract
-	fastqc $f2 -o $qcOut --extract
-	#Output run inputs
-	echo "fastqc $f1 -o $qcOut --extract" >> $inputOutFile
-	echo "fastqc $f2 -o $qcOut --extract" >> $inputOutFile
-	#Print status message
-	echo "Processed!"
-done
+# status message
+echo "Beginning QC..."
 
-#Print status message
+# run fastqc on all reads
+fastqc -t 8 $readPath"/"*fq.gz; do
+
+# status message
 echo "Analysis complete!"
